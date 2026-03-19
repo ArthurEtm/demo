@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maison Soleil — Luxury Interior Design · Jupiter, Florida</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#FAFAF8;--cream:#F2EDE6;--sand:#E3D9CE;
+  --fog:#D4E6F0;--sky:#A8CBE0;--ocean:#5A9AB8;
+  --deep:#2C6882;--navy:#1A3F52;--char:#252527;
+  --warm:#7A6E66;--gold:#C09A6E;
+}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--char);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+#cur{position:fixed;width:8px;height:8px;background:var(--deep);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s}
+#cur-r{position:fixed;width:32px;height:32px;border:1px solid var(--ocean);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .4s,height .4s;opacity:.45}
+.on-link #cur{width:5px;height:5px;background:var(--gold)}
+.on-link #cur-r{width:50px;height:50px;opacity:.22}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:30px 60px;transition:all .5s}
+nav.stuck{background:rgba(250,250,248,.94);backdrop-filter:blur(16px);padding:18px 60px;box-shadow:0 1px 0 rgba(42,104,130,.08)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;letter-spacing:.14em;color:var(--white);text-decoration:none;transition:color .4s}
+nav.stuck .logo{color:var(--char)}
+.nav-ul{display:flex;gap:44px;list-style:none}
+.nav-ul a{font-size:.72rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:rgba(250,250,248,.75);text-decoration:none;transition:color .3s}
+nav.stuck .nav-ul a{color:var(--warm)}
+.nav-ul a:hover,.nav-cta:hover{color:var(--gold)!important}
+.nav-cta{font-size:.72rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--white);text-decoration:none;padding:11px 26px;border:1px solid rgba(250,250,248,.35);transition:all .35s}
+nav.stuck .nav-cta{color:var(--char);border-color:var(--sand)}
+.nav-cta:hover{background:var(--deep)!important;border-color:var(--deep)!important;color:var(--white)!important}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:660px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.hero-scene{position:absolute;inset:0;width:100%;height:100%}
+.hero-scene svg{width:100%;height:100%;object-fit:cover}
+.hero-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(22,50,65,.9) 0%,rgba(22,50,65,.35) 45%,rgba(22,50,65,.1) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 60px 80px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
+.hero-left{max-width:580px}
+.hero-eyebrow{font-size:.7rem;letter-spacing:.35em;text-transform:uppercase;color:var(--fog);margin-bottom:22px;opacity:0;animation:fU .8s ease .3s forwards}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.4rem,7.5vw,6.2rem);font-weight:300;line-height:1.05;color:var(--white);letter-spacing:-.015em;opacity:0;animation:fU .9s ease .5s forwards}
+.hero h1 em{font-style:italic;color:#D4E6F0}
+.hero-right{text-align:right;opacity:0;animation:fU .9s ease .8s forwards;flex-shrink:0}
+.hero-right p{font-size:.9rem;line-height:1.8;color:rgba(250,250,248,.65);max-width:300px;margin-left:auto;margin-bottom:32px}
+.btn{display:inline-block;font-size:.72rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding:15px 34px;border:1px solid rgba(250,250,248,.4);color:var(--white);transition:all .35s;cursor:pointer;font-family:'Jost',sans-serif;background:transparent}
+.btn:hover{background:var(--white);border-color:var(--white);color:var(--navy)}
+.btn-solid{background:var(--char);border-color:var(--char);color:var(--white)}
+.btn-solid:hover{background:var(--deep)!important;border-color:var(--deep)!important;color:var(--white)!important}
+.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fIn 1s ease 1.3s forwards;z-index:3}
+.hero-scroll span{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(250,250,248,.4)}
+.s-line{width:1px;height:52px;background:rgba(250,250,248,.2);overflow:hidden;position:relative}
+.s-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--gold);animation:sD 2s ease-in-out 1.5s infinite}
+
+/* PORTFOLIO */
+#portfolio{padding:0}
+.featured{position:relative;height:88vh;min-height:560px;overflow:hidden;display:flex;align-items:flex-end;cursor:pointer}
+.featured-scene{position:absolute;inset:0;width:100%;height:100%}
+.featured-scene svg{width:100%;height:100%}
+.featured:hover .featured-scene svg{transform:scale(1.025);transition:transform .9s cubic-bezier(.25,.46,.45,.94)}
+.featured-scene svg{transition:transform .9s cubic-bezier(.25,.46,.45,.94)}
+.featured-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,48,62,.92) 0%,rgba(20,48,62,.25) 45%,transparent 72%)}
+.featured-num{position:absolute;top:60px;right:60px;font-family:'Cormorant Garamond',serif;font-size:7rem;font-weight:300;color:rgba(250,250,248,.07);line-height:1;letter-spacing:-.05em}
+.featured-tag{position:absolute;top:60px;left:60px;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--sky);padding:8px 16px;border:1px solid rgba(168,203,224,.3)}
+.featured-info{position:relative;z-index:2;padding:0 60px 64px;width:100%;display:flex;align-items:flex-end;justify-content:space-between}
+.featured-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:300;color:var(--white);line-height:1.1}
+.featured-title em{font-style:italic;color:var(--fog)}
+.featured-meta{text-align:right}
+.featured-loc{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sky);margin-bottom:6px}
+.featured-desc{font-size:.88rem;line-height:1.7;color:rgba(250,250,248,.6);max-width:280px;margin-left:auto}
+.featured-arrow{display:inline-flex;align-items:center;gap:10px;margin-top:20px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--white);opacity:.8;transition:opacity .3s,gap .3s}
+.featured:hover .featured-arrow{opacity:1;gap:18px}
+
+.strip-header{display:flex;align-items:flex-end;justify-content:space-between;padding:72px 60px 36px}
+.label{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.strip-header h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;color:var(--char)}
+.strip-header h2 em{font-style:italic;color:var(--deep)}
+.strip-nav{display:flex;gap:12px}
+.snav{width:44px;height:44px;border:1px solid var(--sand);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;font-size:1rem;color:var(--warm);font-family:'Jost',sans-serif}
+.snav:hover{background:var(--deep);border-color:var(--deep);color:var(--white)}
+.track-wrap{overflow:hidden;padding:0 60px 60px}
+.track{display:flex;gap:24px;transition:transform .6s cubic-bezier(.25,.46,.45,.94)}
+.proj{flex:0 0 400px;cursor:pointer}
+.proj-img{height:300px;overflow:hidden;position:relative}
+.proj-img svg{width:100%;height:100%;transition:transform .7s ease;display:block}
+.proj:hover .proj-img svg{transform:scale(1.06)}
+.proj-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,48,62,.72) 0%,transparent 55%);opacity:0;transition:opacity .4s}
+.proj:hover .proj-overlay{opacity:1}
+.proj-view{position:absolute;bottom:22px;left:24px;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--white);opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.proj:hover .proj-view{opacity:1;transform:translateY(0)}
+.proj-body{padding:20px 0 0}
+.proj-name{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:var(--char);margin-bottom:5px}
+.proj-sub{font-size:.78rem;letter-spacing:.08em;color:var(--warm)}
+.dots{display:flex;justify-content:center;gap:8px;padding-bottom:80px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--sand);transition:background .3s,width .3s}
+.dot.active{background:var(--deep);width:20px;border-radius:3px}
+
+/* ABOUT */
+#about{display:grid;grid-template-columns:1fr 1fr;background:var(--navy)}
+.about-vis{position:relative;overflow:hidden;min-height:580px}
+.about-vis svg{width:100%;height:100%;position:absolute;inset:0}
+.about-vis-label{position:absolute;bottom:36px;left:40px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,250,248,.45);z-index:2}
+.about-txt{padding:80px 68px;display:flex;flex-direction:column;justify-content:center}
+.about-txt .label{color:var(--sky)}
+.about-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:var(--white);line-height:1.12}
+.about-h em{font-style:italic;color:var(--fog)}
+.about-p{margin-top:22px;font-size:.92rem;line-height:1.9;color:rgba(250,250,248,.6)}
+.about-stats{display:flex;gap:40px;margin-top:48px;padding-top:40px;border-top:1px solid rgba(250,250,248,.1)}
+.st-n{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--white);line-height:1}
+.st-l{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);margin-top:5px}
+
+/* SERVICES */
+#services{padding:100px 60px;background:var(--cream)}
+.svc-intro{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:64px;flex-wrap:wrap}
+.svc-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;color:var(--char)}
+.svc-h em{font-style:italic;color:var(--deep)}
+.svc-intro-r{display:flex;flex-direction:column;gap:20px;align-items:flex-end}
+.svc-intro-r p{font-size:.9rem;line-height:1.8;color:var(--warm);max-width:360px;text-align:right}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--sand)}
+.svc{padding:44px 40px;border-right:1px solid var(--sand);border-bottom:1px solid var(--sand);position:relative;overflow:hidden;transition:background .4s}
+.svc:nth-child(3n){border-right:none}
+.svc:nth-child(n+4){border-bottom:none}
+.svc::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--ocean);transition:width .5s ease}
+.svc:hover{background:var(--white)}.svc:hover::after{width:100%}
+.svc-n{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--fog);line-height:1;margin-bottom:22px}
+.svc-t{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:var(--char);margin-bottom:14px}
+.svc p{font-size:.87rem;line-height:1.8;color:var(--warm)}
+
+/* CONTACT */
+#contact{padding:100px 60px;background:var(--white);display:grid;grid-template-columns:1fr 1.15fr;gap:100px;align-items:start}
+.con-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;color:var(--char)}
+.con-h em{font-style:italic;color:var(--deep)}
+.con-left p{margin-top:22px;font-size:.9rem;line-height:1.8;color:var(--warm);max-width:360px}
+.con-info{margin-top:52px}
+.ci{padding:18px 0;border-bottom:1px solid var(--sand)}
+.ci:first-child{border-top:1px solid var(--sand)}
+.ci-l{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.ci-v{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--char)}
+.form-g{margin-bottom:26px}
+.form-g label{display:block;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--warm);margin-bottom:9px}
+.form-g input,.form-g select,.form-g textarea{width:100%;background:transparent;border:none;border-bottom:1px solid var(--sand);padding:11px 0;font-family:'Jost',sans-serif;font-size:.92rem;font-weight:300;color:var(--char);outline:none;transition:border-color .3s;appearance:none}
+.form-g input:focus,.form-g select:focus,.form-g textarea:focus{border-color:var(--ocean)}
+.form-g textarea{resize:none;height:90px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+
+footer{background:var(--char);padding:56px 60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.f-logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;letter-spacing:.14em;color:var(--white)}
+.f-tag{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--warm);margin-top:4px}
+.f-links{display:flex;gap:32px}
+.f-links a{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--warm);text-decoration:none;transition:color .3s}
+.f-links a:hover{color:var(--gold)}
+.f-copy{font-size:.72rem;color:var(--warm);width:100%;text-align:center;margin-top:6px;border-top:1px solid rgba(255,255,255,.06);padding-top:24px}
+
+.rv{opacity:0;transform:translateY(28px);transition:opacity .85s ease,transform .85s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+@keyframes fU{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fIn{from{opacity:0}to{opacity:1}}
+@keyframes sD{0%{top:-100%}50%,100%{top:100%}}
+
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+.modal.open{opacity:1;pointer-events:all}
+.modal-bg{position:absolute;inset:0;background:rgba(18,42,55,.9);backdrop-filter:blur(10px)}
+.modal-box{position:relative;z-index:2;background:var(--white);max-width:900px;width:90%;max-height:88vh;overflow-y:auto;display:grid;grid-template-columns:1.15fr 1fr}
+.modal-img{min-height:420px;overflow:hidden}
+.modal-img svg{width:100%;height:100%;display:block}
+.modal-body{padding:52px 44px;display:flex;flex-direction:column;justify-content:center}
+.modal-lbl{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.modal-t{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;line-height:1.12;color:var(--char);margin-bottom:8px}
+.modal-t em{font-style:italic;color:var(--deep)}
+.modal-loc{font-size:.78rem;letter-spacing:.12em;color:var(--warm);margin-bottom:22px}
+.modal-d{font-size:.88rem;line-height:1.85;color:var(--warm)}
+.modal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;background:var(--char);border:none;color:var(--white);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:3;transition:background .3s;font-family:'Jost',sans-serif}
+.modal-close:hover{background:var(--deep)}
+
+@media(max-width:900px){
+  nav{padding:20px 28px}nav.stuck{padding:14px 28px}
+  .nav-ul{display:none}.nav-cta{display:none}
+  .hero h1{font-size:2.8rem}.hero-content{padding:0 28px 60px;flex-direction:column;align-items:flex-start}
+  .hero-right{text-align:left}
+  .featured-info{flex-direction:column;gap:16px;padding:0 28px 44px}
+  .featured-num{font-size:3.5rem;top:28px;right:28px}.featured-tag{top:28px;left:28px}
+  .strip-header{padding:52px 28px 24px}.track-wrap{padding:0 28px 52px}
+  .proj{flex:0 0 290px}
+  #about{grid-template-columns:1fr}.about-vis{min-height:300px}.about-txt{padding:56px 36px}
+  #services{padding:72px 28px}
+  .svc-grid{grid-template-columns:1fr}.svc{border-right:none}.svc:nth-child(n+4){border-bottom:1px solid var(--sand)}.svc:last-child{border-bottom:none}
+  #contact{grid-template-columns:1fr;gap:52px;padding:72px 28px}
+  footer{padding:44px 28px}
+  .modal-box{grid-template-columns:1fr}.modal-img{min-height:240px}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div><div id="cur-r"></div>
+
+<nav id="nav">
+  <a href="#" class="logo">MAISON SOLEIL</a>
+  <ul class="nav-ul">
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#about">Studio</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Begin a project</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-scene" id="heroScene"></div>
+  <div class="hero-grad"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Luxury Interior Design · Jupiter, Florida</p>
+      <h1>Spaces of <em>quiet</em><br>coastal luxury</h1>
+    </div>
+    <div class="hero-right">
+      <p>We design homes that feel inevitable — as though they could only have ever looked exactly this way.</p>
+      <a href="#portfolio" class="btn">View our portfolio</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="s-line"></div><span>Scroll</span></div>
+</section>
+
+<section id="portfolio">
+  <div class="featured rv" onclick="openModal(0)">
+    <div class="featured-scene" id="featScene"></div>
+    <div class="featured-grad"></div>
+    <div class="featured-num">01</div>
+    <div class="featured-tag">Featured Project · 2024</div>
+    <div class="featured-info">
+      <div><div class="featured-title">Jupiter Inlet Colony<br><em>Grand Salon</em></div></div>
+      <div class="featured-meta">
+        <div class="featured-loc">Jupiter, Florida</div>
+        <div class="featured-desc">A complete transformation of a 4,800 sq ft waterfront estate — from shell to fully furnished in 11 weeks.</div>
+        <div class="featured-arrow">View project &nbsp;→</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="strip-header rv">
+    <div><div class="label">Selected Works</div><h2>Recent <em>projects</em></h2></div>
+    <div class="strip-nav">
+      <button class="snav" onclick="slide(-1)">←</button>
+      <button class="snav" onclick="slide(1)">→</button>
+    </div>
+  </div>
+
+  <div class="track-wrap">
+    <div class="track" id="track">
+      <div class="proj" onclick="openModal(1)"><div class="proj-img"><div id="p1"></div><div class="proj-overlay"></div><div class="proj-view">View project →</div></div><div class="proj-body"><div class="proj-name">Bear's Club Residence</div><div class="proj-sub">Primary Suite · Jupiter, FL</div></div></div>
+      <div class="proj" onclick="openModal(2)"><div class="proj-img"><div id="p2"></div><div class="proj-overlay"></div><div class="proj-view">View project →</div></div><div class="proj-body"><div class="proj-name">Admirals Cove Estate</div><div class="proj-sub">Grand Kitchen · Palm Beach Gardens, FL</div></div></div>
+      <div class="proj" onclick="openModal(3)"><div class="proj-img"><div id="p3"></div><div class="proj-overlay"></div><div class="proj-view">View project →</div></div><div class="proj-body"><div class="proj-name">Palm Beach Ocean Retreat</div><div class="proj-sub">Spa Bath · Palm Beach, FL</div></div></div>
+      <div class="proj" onclick="openModal(4)"><div class="proj-img"><div id="p4"></div><div class="proj-overlay"></div><div class="proj-view">View project →</div></div><div class="proj-body"><div class="proj-name">Frenchman's Creek Villa</div><div class="proj-sub">Dining Room · Jupiter, FL</div></div></div>
+      <div class="proj" onclick="openModal(5)"><div class="proj-img"><div id="p5"></div><div class="proj-overlay"></div><div class="proj-view">View project →</div></div><div class="proj-body"><div class="proj-name">Tequesta Waterfront</div><div class="proj-sub">Library · Tequesta, FL</div></div></div>
+      <div class="proj" onclick="openModal(6)"><div class="proj-img"><div id="p6"></div><div class="proj-overlay"></div><div class="proj-view">View project →</div></div><div class="proj-body"><div class="proj-name">Juno Beach New Construction</div><div class="proj-sub">Loggia & Pool · Juno Beach, FL</div></div></div>
+    </div>
+  </div>
+  <div class="dots" id="dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+</section>
+
+<section id="about">
+  <div class="about-vis"><div id="aboutScene" style="position:absolute;inset:0"></div><div class="about-vis-label">Jupiter, Florida</div></div>
+  <div class="about-txt rv">
+    <div class="label">The Studio</div>
+    <div class="about-h">Design rooted<br>in <em>place</em></div>
+    <p class="about-p">Maison Soleil was founded in Jupiter with a single conviction: that exceptional design should feel inevitable — as though the home always looked exactly this way.</p>
+    <p class="about-p" style="margin-top:14px">We work with a small number of clients at a time. Every home we touch reflects the family inside it — never a portfolio piece first.</p>
+    <div class="about-stats">
+      <div><div class="st-n">12+</div><div class="st-l">Years experience</div></div>
+      <div><div class="st-n">85</div><div class="st-l">Projects completed</div></div>
+      <div><div class="st-n">100%</div><div class="st-l">Client referrals</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="svc-intro rv">
+    <div><div class="label">What We Offer</div><div class="svc-h">A complete <em>design experience</em></div></div>
+    <div class="svc-intro-r"><p>From concept through installation, we manage every detail so you can simply enjoy the result.</p><a href="#contact" class="btn btn-solid">Begin a project</a></div>
+  </div>
+  <div class="svc-grid rv">
+    <div class="svc"><div class="svc-n">01</div><div class="svc-t">Full Interior Design</div><p>Concept through installation — architecture liaison, material sourcing, contractor coordination, and final styling.</p></div>
+    <div class="svc"><div class="svc-n">02</div><div class="svc-t">New Construction</div><p>We partner with your builder from the ground up — finishes, kitchen and bath specifications, lighting plans, and every detail that makes a house a home.</p></div>
+    <div class="svc"><div class="svc-n">03</div><div class="svc-t">Furniture & Procurement</div><p>Access to the world's finest showrooms alongside curated vintage and custom pieces. We handle all purchasing and white-glove delivery.</p></div>
+    <div class="svc"><div class="svc-n">04</div><div class="svc-t">Relocation Ready</div><p>Moving to Palm Beach County? We coordinate with your real estate team to have your home beautifully finished before your first weekend in residence.</p></div>
+    <div class="svc"><div class="svc-n">05</div><div class="svc-t">Seasonal Refresh</div><p>Styling updates, art curation, soft furnishing refreshes, and holiday installations to keep your home feeling considered every season.</p></div>
+    <div class="svc"><div class="svc-n">06</div><div class="svc-t">Design Vision Consult</div><p>A complimentary 30-minute walk of your space. No obligation — just a conversation about what's possible and how we might help.</p></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="con-left rv">
+    <div class="label">Get In Touch</div>
+    <div class="con-h">Begin with<br>a <em>conversation</em></div>
+    <p>We'd love to learn about your home. Reach out for a complimentary Design Vision call — no pressure, just possibility.</p>
+    <div class="con-info">
+      <div class="ci"><div class="ci-l">Location</div><div class="ci-v">Jupiter, Florida · Palm Beach County</div></div>
+      <div class="ci"><div class="ci-l">Phone</div><div class="ci-v">[Your Phone Number]</div></div>
+      <div class="ci"><div class="ci-l">Email</div><div class="ci-v">[Your Email Address]</div></div>
+      <div class="ci"><div class="ci-l">Hours</div><div class="ci-v">Monday – Friday, 9am – 5pm</div></div>
+    </div>
+  </div>
+  <div class="rv">
+    <form onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-g"><label>First Name</label><input type="text" placeholder="Alexandra"></div>
+        <div class="form-g"><label>Last Name</label><input type="text" placeholder="Hartwell"></div>
+      </div>
+      <div class="form-g"><label>Email</label><input type="email" placeholder="alex@example.com"></div>
+      <div class="form-g"><label>Phone</label><input type="tel" placeholder="(561) 000-0000"></div>
+      <div class="form-g"><label>Project Type</label>
+        <select><option value="">Select a service...</option><option>Full Interior Design</option><option>New Construction</option><option>Furniture & Procurement</option><option>Relocation Ready</option><option>Seasonal Refresh</option><option>Design Vision Consult (Complimentary)</option></select>
+      </div>
+      <div class="form-g"><label>About your project</label><textarea placeholder="Share a little about your home, your timeline, and what you're hoping to achieve..."></textarea></div>
+      <div style="margin-top:36px"><button type="submit" class="btn btn-solid">Send Enquiry</button></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div><div class="f-logo">MAISON SOLEIL</div><div class="f-tag">Luxury Interior Design · Jupiter, Florida</div></div>
+  <div class="f-links"><a href="#portfolio">Portfolio</a><a href="#about">Studio</a><a href="#services">Services</a><a href="#contact">Contact</a></div>
+  <div class="f-copy">© 2025 Maison Soleil · Jupiter, Florida · All rights reserved</div>
+</footer>
+
+<div class="modal" id="modal" onclick="closeModalBg(event)">
+  <div class="modal-bg"></div>
+  <div class="modal-box">
+    <div class="modal-img" id="modal-img"></div>
+    <div class="modal-body">
+      <div class="modal-lbl" id="modal-lbl"></div>
+      <div class="modal-t" id="modal-t"></div>
+      <div class="modal-loc" id="modal-loc"></div>
+      <div class="modal-d" id="modal-d"></div>
+      <div style="margin-top:32px"><a href="#contact" class="btn btn-solid" onclick="closeModalDirect()">Start a similar project</a></div>
+    </div>
+    <button class="modal-close" onclick="closeModalDirect()">✕</button>
+  </div>
+</div>
+
+<script>
+// ── SVG ROOM ILLUSTRATIONS ─────────────────────────────────────────────────
+
+function svgGrandSalon(w,h){
+  // Warm cream Palm Beach grand salon, arched french doors, ocean glimpse, afternoon light
+  return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="gOcean" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7AAFC8"/><stop offset="55%" stop-color="#9DC5DA"/><stop offset="100%" stop-color="#C2DCE8"/></linearGradient>
+    <linearGradient id="gCeil" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F5F0E8"/><stop offset="100%" stop-color="#EDE8DF"/></linearGradient>
+    <linearGradient id="gWall" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#EDE8DF"/><stop offset="100%" stop-color="#F2EDE5"/></linearGradient>
+    <linearGradient id="gFloor" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E8E4DC"/><stop offset="100%" stop-color="#F0EDE8"/></linearGradient>
+    <linearGradient id="gSun" x1="1" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(255,200,100,0.32)"/><stop offset="60%" stop-color="rgba(255,200,100,0.08)"/><stop offset="100%" stop-color="rgba(255,200,100,0)"/></linearGradient>
+    <radialGradient id="gLamp1" cx="50%" cy="100%" r="70%"><stop offset="0%" stop-color="rgba(255,195,90,0.28)"/><stop offset="100%" stop-color="rgba(255,195,90,0)"/></radialGradient>
+    <radialGradient id="gGlow" cx="78%" cy="35%" r="45%"><stop offset="0%" stop-color="rgba(255,210,130,0.22)"/><stop offset="100%" stop-color="rgba(255,210,130,0)"/></radialGradient>
+    <pattern id="mFloor" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse"><rect width="80" height="80" fill="#EAE6DE"/><path d="M0 25 Q20 22 40 26 Q60 30 80 24" stroke="#DDDAD2" stroke-width="0.6" fill="none" opacity="0.7"/><path d="M0 55 Q25 52 50 56 Q65 59 80 53" stroke="#DDDAD2" stroke-width="0.5" fill="none" opacity="0.5"/><path d="M18 0 Q22 40 18 80" stroke="#DEDAD2" stroke-width="0.4" fill="none" opacity="0.35"/><path d="M55 0 Q58 35 54 80" stroke="#DEDAD2" stroke-width="0.4" fill="none" opacity="0.3"/></pattern>
+    <clipPath id="cpDoor1"><path d="M${w*.17} ${h*.16} Q${w*.17} ${h*.08} ${w*.255} ${h*.06} Q${w*.34} ${h*.08} ${w*.34} ${h*.16} L${w*.34} ${h*.82} L${w*.17} ${h*.82} Z"/></clipPath>
+    <clipPath id="cpDoor2"><path d="M${w*.42} ${h*.16} Q${w*.42} ${h*.05} ${w*.54} ${h*.03} Q${w*.66} ${h*.05} ${w*.66} ${h*.16} L${w*.66} ${h*.82} L${w*.42} ${h*.82} Z"/></clipPath>
+    <clipPath id="cpDoor3"><path d="M${w*.71} ${h*.16} Q${w*.71} ${h*.08} ${w*.795} ${h*.06} Q${w*.88} ${h*.08} ${w*.88} ${h*.16} L${w*.88} ${h*.82} L${w*.71} ${h*.82} Z"/></clipPath>
+  </defs>
+  <!-- Ocean bg -->
+  <rect width="${w}" height="${h}" fill="url(#gOcean)"/>
+  <!-- Ceiling -->
+  <rect x="0" y="0" width="${w}" height="${h*.17}" fill="url(#gCeil)"/>
+  <!-- Crown molding -->
+  <rect x="0" y="${h*.165}" width="${w}" height="${h*.012}" fill="#E2DDD4"/>
+  <rect x="0" y="${h*.177}" width="${w}" height="${h*.005}" fill="#EDE9E1"/>
+  <!-- Left wall -->
+  <rect x="0" y="0" width="${w*.15}" height="${h}" fill="#EDE8DF"/>
+  <!-- Right wall -->
+  <rect x="${w*.9}" y="0" width="${w*.1}" height="${h}" fill="#E8E3DB"/>
+
+  <!-- Door arch 1 (left) - ocean view -->
+  <path d="M${w*.17} ${h*.16} Q${w*.17} ${h*.08} ${w*.255} ${h*.06} Q${w*.34} ${h*.08} ${w*.34} ${h*.16} L${w*.34} ${h*.82} L${w*.17} ${h*.82} Z" fill="url(#gOcean)" opacity="0.92"/>
+  <!-- garden/terrace floor in door 1 -->
+  <rect x="${w*.17}" y="${h*.7}" width="${w*.17}" height="${h*.12}" fill="#C8B89A" opacity="0.5" clip-path="url(#cpDoor1)"/>
+  <!-- palm in door 1 -->
+  <path d="M${w*.218} ${h*.78} L${w*.222} ${h*.52}" stroke="#3A5A2C" stroke-width="2.5" fill="none" clip-path="url(#cpDoor1)"/>
+  <path d="M${w*.222} ${h*.52} Q${w*.19} ${h*.46} ${w*.175} ${h*.48} M${w*.222} ${h*.52} Q${w*.25} ${h*.44} ${w*.258} ${h*.46} M${w*.222} ${h*.52} Q${w*.205} ${h*.47} ${w*.195} ${h*.44}" stroke="#4A6A3A" stroke-width="2" fill="none" clip-path="url(#cpDoor1)" opacity="0.8"/>
+  <!-- Door frame 1 -->
+  <path d="M${w*.17} ${h*.16} Q${w*.17} ${h*.08} ${w*.255} ${h*.06} Q${w*.34} ${h*.08} ${w*.34} ${h*.16}" fill="none" stroke="#D8D2C8" stroke-width="3"/>
+  <rect x="${w*.168}" y="${h*.16}" width="3" height="${h*.66}" fill="#D8D2C8"/>
+  <rect x="${w*.338}" y="${h*.16}" width="3" height="${h*.66}" fill="#D8D2C8"/>
+  <rect x="${w*.17}" y="${h*.5}" width="${w*.17}" height="2" fill="#D8D2C8" opacity="0.6"/>
+
+  <!-- Door arch 2 (center, widest) - ocean view -->
+  <path d="M${w*.42} ${h*.16} Q${w*.42} ${h*.05} ${w*.54} ${h*.03} Q${w*.66} ${h*.05} ${w*.66} ${h*.16} L${w*.66} ${h*.82} L${w*.42} ${h*.82} Z" fill="url(#gOcean)" opacity="0.95"/>
+  <!-- horizon in center door -->
+  <rect x="${w*.42}" y="${h*.6}" width="${w*.24}" height="1.5" fill="rgba(168,203,224,0.35)" clip-path="url(#cpDoor2)"/>
+  <rect x="${w*.42}" y="${h*.61}" width="${w*.24}" height="${h*.21}" fill="rgba(142,190,218,0.25)" clip-path="url(#cpDoor2)"/>
+  <!-- palm fronds center door -->
+  <path d="M${w*.54} ${h*.82} L${w*.537} ${h*.45}" stroke="#3A5A2C" stroke-width="3" fill="none"/>
+  <path d="M${w*.537} ${h*.45} Q${w*.49} ${h*.37} ${w*.47} ${h*.38} M${w*.537} ${h*.45} Q${w*.575} ${h*.36} ${w*.59} ${h*.37} M${w*.537} ${h*.45} Q${w*.51} ${h*.39} ${w*.495} ${h*.36} M${w*.537} ${h*.45} Q${w*.562} ${h*.4} ${w*.572} ${h*.37}" stroke="#4A6A3A" stroke-width="2.2" fill="none" opacity="0.85"/>
+  <!-- door frame 2 -->
+  <path d="M${w*.42} ${h*.16} Q${w*.42} ${h*.05} ${w*.54} ${h*.03} Q${w*.66} ${h*.05} ${w*.66} ${h*.16}" fill="none" stroke="#D8D2C8" stroke-width="3.5"/>
+  <rect x="${w*.418}" y="${h*.16}" width="3.5" height="${h*.66}" fill="#D8D2C8"/>
+  <rect x="${w*.657}" y="${h*.16}" width="3.5" height="${h*.66}" fill="#D8D2C8"/>
+  <rect x="${w*.42}" y="${h*.5}" width="${w*.24}" height="2.5" fill="#D8D2C8" opacity="0.6"/>
+
+  <!-- Door arch 3 (right) -->
+  <path d="M${w*.71} ${h*.16} Q${w*.71} ${h*.08} ${w*.795} ${h*.06} Q${w*.88} ${h*.08} ${w*.88} ${h*.16} L${w*.88} ${h*.82} L${w*.71} ${h*.82} Z" fill="url(#gOcean)" opacity="0.9"/>
+  <rect x="${w*.71}" y="${h*.7}" width="${w*.17}" height="${h*.12}" fill="#C8B89A" opacity="0.45" clip-path="url(#cpDoor3)"/>
+  <path d="M${w*.77} ${h*.78} L${w*.773} ${h*.54}" stroke="#3A5A2C" stroke-width="2" fill="none" clip-path="url(#cpDoor3)"/>
+  <path d="M${w*.773} ${h*.54} Q${w*.745} ${h*.48} ${w*.732} ${h*.5} M${w*.773} ${h*.54} Q${w*.8} ${h*.46} ${w*.812} ${h*.48} M${w*.773} ${h*.54} Q${w*.758} ${h*.49} ${w*.748} ${h*.46}" stroke="#4A6A3A" stroke-width="1.8" fill="none" clip-path="url(#cpDoor3)" opacity="0.75"/>
+  <path d="M${w*.71} ${h*.16} Q${w*.71} ${h*.08} ${w*.795} ${h*.06} Q${w*.88} ${h*.08} ${w*.88} ${h*.16}" fill="none" stroke="#D8D2C8" stroke-width="3"/>
+  <rect x="${w*.708}" y="${h*.16}" width="3" height="${h*.66}" fill="#D8D2C8"/>
+  <rect x="${w*.878}" y="${h*.16}" width="3" height="${h*.66}" fill="#D8D2C8"/>
+  <rect x="${w*.71}" y="${h*.5}" width="${w*.17}" height="2" fill="#D8D2C8" opacity="0.55"/>
+
+  <!-- Terrace step / baseboard -->
+  <rect x="${w*.17}" y="${h*.82}" width="${w*.71}" height="${h*.04}" fill="#D8D3CA"/>
+  <rect x="0" y="${h*.82}" width="${w*.17}" height="${h*.04}" fill="#D0CBC2"/>
+  <rect x="${w*.9}" y="${h*.82}" width="${w*.1}" height="${h*.04}" fill="#D0CBC2"/>
+
+  <!-- Marble floor -->
+  <rect x="0" y="${h*.86}" width="${w}" height="${h*.14}" fill="url(#mFloor)"/>
+  <!-- floor reflection of light -->
+  <rect x="${w*.3}" y="${h*.86}" width="${w*.4}" height="${h*.14}" fill="rgba(255,220,160,0.07)"/>
+
+  <!-- Left sofa (cream linen) -->
+  <rect x="${w*.04}" y="${h*.6}" width="${w*.26}" height="${h*.2}" rx="5" fill="#E4DECE"/>
+  <rect x="${w*.04}" y="${h*.6}" width="${w*.26}" height="${h*.04}" rx="3" fill="#DDD5C3"/>
+  <rect x="${w*.04}" y="${h*.57}" width="${w*.26}" height="${h*.045}" rx="3" fill="#D8D0BF"/>
+  <rect x="${w*.048}" y="${h*.64}" width="${w*.08}" height="${h*.16}" rx="3" fill="#EAE2D3"/>
+  <rect x="${w*.138}" y="${h*.64}" width="${w*.08}" height="${h*.16}" rx="3" fill="#E6DDD0"/>
+  <rect x="${w*.228}" y="${h*.64}" width="${w*.065}" height="${h*.16}" rx="3" fill="#EAE2D3"/>
+  <rect x="${w*.032}" y="${h*.565}" width="${w*.013}" height="${h*.255}" rx="3" fill="#D5CDBF"/>
+  <rect x="${w*.287}" y="${h*.565}" width="${w*.013}" height="${h*.255}" rx="3" fill="#D5CDBF"/>
+  <!-- accent pillow -->
+  <rect x="${w*.235}" y="${h*.578}" width="${w*.04}" height="${h*.055}" rx="3" fill="#8A7865" transform="rotate(-6 ${w*.255} ${h*.605})"/>
+
+  <!-- Coffee table (oval marble) -->
+  <ellipse cx="${w*.5}" cy="${h*.77}" rx="${w*.16}" ry="${h*.055}" fill="#EAE6DE" stroke="#D8D4CC" stroke-width="1"/>
+  <ellipse cx="${w*.5}" cy="${h*.77}" rx="${w*.155}" ry="${h*.048}" fill="#EEEAE4"/>
+  <!-- marble veins on table -->
+  <path d="M${w*.36} ${h*.768} Q${w*.43} ${h*.762} ${w*.5} ${h*.772} Q${w*.57} ${h*.782} ${w*.64} ${h*.774}" stroke="#D5D1C8" stroke-width="0.7" fill="none" opacity="0.7"/>
+  <!-- vase on table -->
+  <ellipse cx="${w*.48}" cy="${h*.762}" rx="${w*.01}" ry="${h*.008}" fill="#A89880"/>
+  <path d="M${w*.472} ${h*.762} Q${w*.476} ${h*.72} ${w*.48} ${h*.715} Q${w*.484} ${h*.72} ${w*.488} ${h*.762}" fill="#B4A48C" stroke="#A89880" stroke-width="0.5"/>
+  <!-- stem/flower -->
+  <line x1="${w*.48}" y1="${h*.715}" x2="${w*.48}" y2="${h*.688}" stroke="#5A7A4A" stroke-width="1.2"/>
+  <ellipse cx="${w*.48}" cy="${h*.685}" rx="${w*.008}" ry="${h*.01}" fill="#C4A882" opacity="0.8"/>
+  <!-- book on table -->
+  <rect x="${w*.51}" y="${h*.762}" width="${w*.05}" height="${h*.01}" rx="1" fill="#8A7060" transform="rotate(-4 ${w*.535} ${h*.767})"/>
+
+  <!-- Right sofa -->
+  <rect x="${w*.7}" y="${h*.6}" width="${w*.26}" height="${h*.2}" rx="5" fill="#E2DAC8"/>
+  <rect x="${w*.7}" y="${h*.6}" width="${w*.26}" height="${h*.04}" rx="3" fill="#D8D0BE"/>
+  <rect x="${w*.7}" y="${h*.57}" width="${w*.26}" height="${h*.045}" rx="3" fill="#D4CCB8"/>
+  <rect x="${w*.708}" y="${h*.64}" width="${w*.078}" height="${h*.16}" rx="3" fill="#E8E0D0"/>
+  <rect x="${w*.796}" y="${h*.64}" width="${w*.078}" height="${h*.16}" rx="3" fill="#EAE2D2"/>
+  <rect x="${w*.883}" y="${h*.64}" width="${w*.065}" height="${h*.16}" rx="3" fill="#E8E0D0"/>
+  <rect x="${w*.692}" y="${h*.565}" width="${w*.013}" height="${h*.255}" rx="3" fill="#D2C8B4"/>
+  <rect x="${w*.947}" y="${h*.565}" width="${w*.013}" height="${h*.255}" rx="3" fill="#D2C8B4"/>
+  <rect x="${w*.706}" y="${h*.578}" width="${w*.04}" height="${h*.055}" rx="3" fill="#786858" transform="rotate(5 ${w*.726} ${h*.605})"/>
+
+  <!-- Side table left with lamp -->
+  <ellipse cx="${w*.033}" cy="${h*.68}" rx="${w*.025}" ry="${h*.014}" fill="#8A7258"/>
+  <ellipse cx="${w*.033}" cy="${h*.672}" rx="${w*.025}" ry="${h*.011}" fill="#9A8268"/>
+  <rect x="${w*.027}" y="${h*.5}" width="${w*.012}" height="${h*.172}" fill="#7A6250" opacity="0.8"/>
+  <!-- lamp shade -->
+  <path d="M${w*.018} ${h*.5} Q${w*.033} ${h*.44} ${w*.048} ${h*.5}" fill="#F0E8D8" stroke="#DDD5C5" stroke-width="0.8"/>
+  <ellipse cx="${w*.033}" cy="${h*.5}" rx="${w*.016}" ry="${h*.006}" fill="#DDD5C5"/>
+  <!-- lamp warm glow -->
+  <ellipse cx="${w*.033}" cy="${h*.53}" rx="${w*.09}" ry="${h*.14}" fill="url(#gLamp1)" opacity="0.7"/>
+
+  <!-- Corner palm (right) -->
+  <ellipse cx="${w*.963}" cy="${h*.9}" rx="${w*.028}" ry="${h*.018}" fill="#6A5A48"/>
+  <rect x="${w*.952}" y="${h*.72}" width="${w*.022}" height="${h*.18}" rx="4" fill="#7A6A58"/>
+  <!-- fronds -->
+  <path d="M${w*.963} ${h*.72} Q${w*.925} ${h*.66} ${w*.908} ${h*.65}" stroke="#4A6A3A" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M${w*.963} ${h*.72} Q${w*.99} ${h*.64} ${w*.998} ${h*.63}" stroke="#3A5A2C" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M${w*.963} ${h*.72} Q${w*.938} ${h*.67} ${w*.925} ${h*.64}" stroke="#4A6A3A" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <path d="M${w*.963} ${h*.72} Q${w*.985} ${h*.68} ${w*.995} ${h*.66}" stroke="#3A5A2C" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Afternoon golden light overlay from right -->
+  <rect x="0" y="0" width="${w}" height="${h}" fill="url(#gSun)"/>
+  <rect x="0" y="0" width="${w}" height="${h}" fill="url(#gGlow)"/>
+
+  <!-- Light shafts on floor from doors -->
+  <polygon points="${w*.19},${h*.86} ${w*.33},${h*.86} ${w*.38},${h} ${w*.14},${h}" fill="rgba(255,220,140,0.07)"/>
+  <polygon points="${w*.44},${h*.86} ${w*.65},${h*.86} ${w*.72},${h} ${w*.37},${h}" fill="rgba(255,220,140,0.06)"/>
+  <polygon points="${w*.72},${h*.86} ${w*.87},${h*.86} ${w*.95},${h} ${w*.64},${h}" fill="rgba(255,220,140,0.065)"/>
+</svg>`;
+}
+
+function svgPrimarySuite(w,h){
+  // Soft morning light, linen bed, ocean view window, airy and warm
+  return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="psMorn" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C8DDE8"/><stop offset="50%" stop-color="#DFF0F8"/><stop offset="100%" stop-color="#E8F4F8"/></linearGradient>
+    <linearGradient id="psWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F4EFE8"/><stop offset="100%" stop-color="#EDE8E0"/></linearGradient>
+    <radialGradient id="psMornGlow" cx="80%" cy="30%" r="55%"><stop offset="0%" stop-color="rgba(255,240,210,0.35)"/><stop offset="100%" stop-color="rgba(255,240,210,0)"/></radialGradient>
+    <linearGradient id="psCurtain" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="rgba(244,239,232,0.95)"/><stop offset="100%" stop-color="rgba(244,239,232,0.4)"/></linearGradient>
+    <pattern id="psFloor" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><rect width="60" height="60" fill="#D8C9A8"/><rect x="0" y="0" width="60" height="1" fill="#C8B898" opacity="0.5"/><rect x="0" y="0" width="1" height="60" fill="#C8B898" opacity="0.3"/></pattern>
+  </defs>
+  <!-- morning sky through window -->
+  <rect width="${w}" height="${h}" fill="url(#psMorn)"/>
+  <!-- back wall -->
+  <rect x="${w*.12}" y="0" width="${w*.76}" height="${h*.82}" fill="url(#psWall)"/>
+  <!-- side walls -->
+  <rect x="0" y="0" width="${w*.12}" height="${h}" fill="#EDE8DF"/>
+  <rect x="${w*.88}" y="0" width="${w*.12}" height="${h}" fill="#E8E3DB"/>
+  <!-- wood floor -->
+  <rect x="0" y="${h*.82}" width="${w}" height="${h*.18}" fill="url(#psFloor)"/>
+  <rect x="0" y="${h*.82}" width="${w}" height="2" fill="#C8B898" opacity="0.4"/>
+
+  <!-- Large window (right side, tall) -->
+  <rect x="${w*.68}" y="${h*.06}" width="${w*.2}" height="${h*.74}" fill="url(#psMorn)" rx="2"/>
+  <!-- window frame -->
+  <rect x="${w*.676}" y="${h*.056}" width="4" height="${h*.748}" fill="#D8D2C8"/>
+  <rect x="${w*.876}" y="${h*.056}" width="4" height="${h*.748}" fill="#D8D2C8"/>
+  <rect x="${w*.676}" y="${h*.056}" width="${w*.204}" height="4" fill="#D8D2C8"/>
+  <rect x="${w*.676}" y="${h*.8}" width="${w*.204}" height="4" fill="#D8D2C8"/>
+  <rect x="${w*.676}" y="${h*.43}" width="${w*.204}" height="2.5" fill="#D8D2C8" opacity="0.7"/>
+  <rect x="${w*.776}" y="${h*.056}" width="2.5" height="${h*.748}" fill="#D8D2C8" opacity="0.7"/>
+  <!-- ocean horizon in window -->
+  <rect x="${w*.68}" y="${h*.52}" width="${w*.2}" height="1.5" fill="rgba(100,160,195,0.4)"/>
+  <!-- sheer curtain right -->
+  <rect x="${w*.855}" y="${h*.056}" width="${w*.04}" height="${h*.748}" fill="rgba(244,239,232,0.7)"/>
+
+  <!-- Upholstered headboard -->
+  <rect x="${w*.2}" y="${h*.22}" width="${w*.5}" height="${h*.32}" rx="4" fill="#DDD8CE"/>
+  <!-- headboard tufting lines -->
+  <path d="M${w*.2} ${h*.31} Q${w*.45} ${h*.295} ${w*.7} ${h*.31}" stroke="#CCCABC" stroke-width="1" fill="none" opacity="0.6"/>
+  <path d="M${w*.2} ${h*.395} Q${w*.45} ${h*.38} ${w*.7} ${h*.395}" stroke="#CCCABC" stroke-width="1" fill="none" opacity="0.6"/>
+  <!-- tuft dots -->
+  <circle cx="${w*.3}" cy="${h*.305}" r="3" fill="#C8C4BC" opacity="0.6"/>
+  <circle cx="${w*.45}" cy="${h*.295}" r="3" fill="#C8C4BC" opacity="0.6"/>
+  <circle cx="${w*.6}" cy="${h*.302}" r="3" fill="#C8C4BC" opacity="0.6"/>
+  <circle cx="${w*.3}" cy="${h*.39}" r="3" fill="#C8C4BC" opacity="0.6"/>
+  <circle cx="${w*.45}" cy="${h*.382}" r="3" fill="#C8C4BC" opacity="0.6"/>
+  <circle cx="${w*.6}" cy="${h*.388}" r="3" fill="#C8C4BC" opacity="0.6"/>
+  <!-- headboard trim -->
+  <rect x="${w*.2}" y="${h*.22}" width="${w*.5}" height="${h*.012}" rx="2" fill="#E4DED4"/>
+  <rect x="${w*.2}" y="${h*.525}" width="${w*.5}" height="${h*.012}" rx="2" fill="#D4CEC4"/>
+
+  <!-- Mattress/base -->
+  <rect x="${w*.18}" y="${h*.535}" width="${w*.54}" height="${h*.06}" rx="3" fill="#C8C0B0"/>
+  <!-- Bedding (rumpled luxury linens) -->
+  <rect x="${w*.16}" y="${h*.5}" width="${w*.58}" height="${h*.22}" rx="5" fill="#EEE8DE"/>
+  <!-- duvet folds -->
+  <path d="M${w*.16} ${h*.57} Q${w*.35} ${h*.555} ${w*.54} ${h*.565} Q${w*.65} ${h*.572} ${w*.74} ${h*.565}" stroke="#E2DCD0" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <path d="M${w*.16} ${h*.62} Q${w*.4} ${h*.608} ${w*.6} ${h*.618} Q${w*.68} ${h*.624} ${w*.74} ${h*.615}" stroke="#DDD7CB" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <!-- pillows -->
+  <rect x="${w*.22}" y="${h*.5}" width="${w*.16}" height="${h*.1}" rx="4" fill="#F4F0EA"/>
+  <rect x="${w*.4}" y="${h*.5}" width="${w*.16}" height="${h*.1}" rx="4" fill="#F0EBE5"/>
+  <!-- accent pillow -->
+  <rect x="${w*.295}" y="${h*.505}" width="${w*.08}" height="${h*.08}" rx="3" fill="#A09080" transform="rotate(-3 ${w*.335} ${h*.545})"/>
+
+  <!-- Nightstand (left) -->
+  <rect x="${w*.08}" y="${h*.62}" width="${w*.1}" height="${h*.18}" rx="3" fill="#8A7258"/>
+  <rect x="${w*.08}" y="${h*.62}" width="${w*.1}" height="${h*.025}" rx="2" fill="#9A8268"/>
+  <rect x="${w*.092}" y="${h*.648}" width="${w*.076}" height="${h*.08}" fill="#8A7258"/>
+  <rect x="${w*.13}" y="${h*.682}" width="${w*.024}" height="${h*.008}" rx="2" fill="#7A6248" opacity="0.8"/>
+  <!-- Table lamp left -->
+  <ellipse cx="${w*.13}" cy="${h*.616}" rx="${w*.032}" ry="${h*.012}" fill="#C8B898"/>
+  <path d="M${w*.108} ${h*.616} Q${w*.13} ${h*.55} ${w*.152} ${h*.616}" fill="#F4EEE4" stroke="#DDD8CC" stroke-width="0.8"/>
+  <ellipse cx="${w*.13}" cy="${h*.55}" rx="${w*.005}" ry="${h*.008}" fill="#F0D080" opacity="0.8"/>
+  <!-- lamp warm glow -->
+  <radialGradient id="lg2" cx="50%" cy="100%" r="60%"><stop offset="0%" stop-color="rgba(255,200,90,0.22)"/><stop offset="100%" stop-color="rgba(255,200,90,0)"/></radialGradient>
+  <ellipse cx="${w*.13}" cy="${h*.62}" rx="${w*.08}" ry="${h*.12}" fill="url(#lg2)"/>
+
+  <!-- Morning light glow -->
+  <rect x="0" y="0" width="${w}" height="${h}" fill="url(#psMornGlow)"/>
+  <!-- Sheer curtain light wash over bed from right -->
+  <rect x="${w*.55}" y="0" width="${w*.45}" height="${h}" fill="rgba(255,248,235,0.12)"/>
+</svg>`;
+}
+
+function svgKitchen(w,h){
+  // White marble island, brass pendants, garden morning light, crisp luxury
+  return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="kGarden" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#92B87A"/><stop offset="40%" stop-color="#A8C888"/><stop offset="70%" stop-color="#B8D498"/><stop offset="100%" stop-color="#C8E0A8"/></linearGradient>
+    <linearGradient id="kMorn" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D8EEF8"/><stop offset="100%" stop-color="#C8E4F4"/></linearGradient>
+    <radialGradient id="kSunIn" cx="60%" cy="0%" r="70%"><stop offset="0%" stop-color="rgba(255,240,200,0.4)"/><stop offset="100%" stop-color="rgba(255,240,200,0)"/></radialGradient>
+    <pattern id="kMarble" x="0" y="0" width="120" height="80" patternUnits="userSpaceOnUse"><rect width="120" height="80" fill="#F0EEEB"/><path d="M0 20 Q30 16 60 22 Q90 28 120 20" stroke="#DDD8D0" stroke-width="0.8" fill="none" opacity="0.8"/><path d="M0 50 Q40 45 80 52 Q105 56 120 48" stroke="#DDD8D0" stroke-width="0.6" fill="none" opacity="0.6"/><path d="M25 0 Q28 40 24 80" stroke="#D8D4CC" stroke-width="0.5" fill="none" opacity="0.4"/><path d="M80 0 Q84 35 80 80" stroke="#D8D4CC" stroke-width="0.4" fill="none" opacity="0.3"/></pattern>
+    <pattern id="kFloor" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse"><rect width="50" height="50" fill="#E8E4DE"/><rect x="0" y="0" width="50" height="0.5" fill="#DDDAD4" opacity="0.7"/><rect x="0" y="0" width="0.5" height="50" fill="#DDDAD4" opacity="0.7"/></pattern>
+  </defs>
+  <!-- back wall -->
+  <rect width="${w}" height="${h}" fill="#F4F0EA"/>
+  <!-- floor -->
+  <rect x="0" y="${h*.72}" width="${w}" height="${h*.28}" fill="url(#kFloor)"/>
+  <rect x="0" y="${h*.72}" width="${w}" height="1.5" fill="#D4D0C8" opacity="0.6"/>
+
+  <!-- Window wall (back center) with garden view -->
+  <rect x="${w*.28}" y="${h*.04}" width="${w*.44}" height="${h*.62}" fill="url(#kMorn)" rx="2"/>
+  <!-- garden in window -->
+  <rect x="${w*.28}" y="${h*.38}" width="${w*.44}" height="${h*.28}" fill="url(#kGarden)"/>
+  <!-- window frame -->
+  <rect x="${w*.276}" y="${h*.036}" width="4" height="${h*.628}" fill="#D8D4CC"/>
+  <rect x="${w*.716}" y="${h*.036}" width="4" height="${h*.628}" fill="#D8D4CC"/>
+  <rect x="${w*.276}" y="${h*.036}" width="${w*.444}" height="4" fill="#D8D4CC"/>
+  <rect x="${w*.276}" y="${h*.66}" width="${w*.444}" height="4" fill="#D8D4CC"/>
+  <!-- window mullions -->
+  <rect x="${w*.276}" y="${h*.35}" width="${w*.444}" height="2.5" fill="#D8D4CC" opacity="0.7"/>
+  <rect x="${w*.498}" y="${h*.036}" width="2.5" height="${h*.628}" fill="#D8D4CC" opacity="0.7"/>
+  <!-- garden details -->
+  <ellipse cx="${w*.36}" cy="${h*.5}" rx="${w*.04}" ry="${h*.08}" fill="#5A7A48" opacity="0.7"/>
+  <ellipse cx="${w*.62}" cy="${h*.48}" rx="${w*.035}" ry="${h*.07}" fill="#4A6A3A" opacity="0.6"/>
+  <ellipse cx="${w*.5}" cy="${h*.52}" rx="${w*.03}" ry="${h*.06}" fill="#628A50" opacity="0.5"/>
+
+  <!-- Upper cabinets (cream/white shaker style) -->
+  <rect x="0" y="${h*.04}" width="${w*.26}" height="${h*.44}" rx="2" fill="#EDEAE4"/>
+  <rect x="${w*.74}" y="${h*.04}" width="${w*.26}" height="${h*.44}" rx="2" fill="#EDEAE4"/>
+  <!-- cabinet panel lines -->
+  <rect x="${w*.015}" y="${h*.06}" width="${w*.11}" height="${h*.2}" rx="1" fill="none" stroke="#D8D4CC" stroke-width="1.2"/>
+  <rect x="${w*.135}" y="${h*.06}" width="${w*.11}" height="${h*.2}" rx="1" fill="none" stroke="#D8D4CC" stroke-width="1.2"/>
+  <rect x="${w*.015}" y="${h*.275}" width="${w*.11}" height="${h*.18}" rx="1" fill="none" stroke="#D8D4CC" stroke-width="1.2"/>
+  <rect x="${w*.135}" y="${h*.275}" width="${w*.11}" height="${h*.18}" rx="1" fill="none" stroke="#D8D4CC" stroke-width="1.2"/>
+  <rect x="${w*.755}" y="${h*.06}" width="${w*.11}" height="${h*.2}" rx="1" fill="none" stroke="#D8D4CC" stroke-width="1.2"/>
+  <rect x="${w*.875}" y="${h*.06}" width="${w*.11}" height="${h*.2}" rx="1" fill="none" stroke="#D8D4CC" stroke-width="1.2"/>
+  <rect x="${w*.755}" y="${h*.275}" width="${w*.11}" height="${h*.18}" rx="1" fill="none" stroke="#D8D4CC" stroke-width="1.2"/>
+  <rect x="${w*.875}" y="${h*.275}" width="${w*.11}" height="${h*.18}" rx="1" fill="none" stroke="#D8D4CC" stroke-width="1.2"/>
+  <!-- brass handles -->
+  <rect x="${w*.065}" y="${h*.148}" width="${w*.022}" height="3" rx="1.5" fill="#C4A055"/>
+  <rect x="${w*.185}" y="${h*.148}" width="${w*.022}" height="3" rx="1.5" fill="#C4A055"/>
+  <rect x="${w*.065}" y="${h*.36}" width="${w*.022}" height="3" rx="1.5" fill="#C4A055"/>
+  <rect x="${w*.185}" y="${h*.36}" width="${w*.022}" height="3" rx="1.5" fill="#C4A055"/>
+  <rect x="${w*.805}" y="${h*.148}" width="${w*.022}" height="3" rx="1.5" fill="#C4A055"/>
+  <rect x="${w*.925}" y="${h*.148}" width="${w*.022}" height="3" rx="1.5" fill="#C4A055"/>
+  <rect x="${w*.805}" y="${h*.36}" width="${w*.022}" height="3" rx="1.5" fill="#C4A055"/>
+  <rect x="${w*.925}" y="${h*.36}" width="${w*.022}" height="3" rx="1.5" fill="#C4A055"/>
+
+  <!-- Marble backsplash -->
+  <rect x="0" y="${h*.48}" width="${w*.26}" height="${h*.24}" fill="url(#kMarble)" opacity="0.9"/>
+  <rect x="${w*.74}" y="${h*.48}" width="${w*.26}" height="${h*.24}" fill="url(#kMarble)" opacity="0.9"/>
+
+  <!-- Lower cabinets -->
+  <rect x="0" y="${h*.72}" width="${w*.26}" height="${h*.28}" fill="#E8E4DC"/>
+  <rect x="${w*.74}" y="${h*.72}" width="${w*.26}" height="${h*.28}" fill="#E8E4DC"/>
+  <!-- lower cabinet panels -->
+  <rect x="${w*.015}" y="${h*.735}" width="${w*.11}" height="${h*.25}" rx="1" fill="none" stroke="#D4D0C8" stroke-width="1.2"/>
+  <rect x="${w*.135}" y="${h*.735}" width="${w*.11}" height="${h*.25}" rx="1" fill="none" stroke="#D4D0C8" stroke-width="1.2"/>
+  <rect x="${w*.755}" y="${h*.735}" width="${w*.11}" height="${h*.25}" rx="1" fill="none" stroke="#D4D0C8" stroke-width="1.2"/>
+  <rect x="${w*.875}" y="${h*.735}" width="${w*.11}" height="${h*.25}" rx="1" fill="none" stroke="#D4D0C8" stroke-width="1.2"/>
+
+  <!-- Waterfall marble island -->
+  <!-- island body -->
+  <rect x="${w*.28}" y="${h*.6}" width="${w*.44}" height="${h*.4}" fill="url(#kMarble)"/>
+  <!-- waterfall sides -->
+  <rect x="${w*.276}" y="${h*.6}" width="${w*.008}" height="${h*.4}" fill="url(#kMarble)"/>
+  <rect x="${w*.716}" y="${h*.6}" width="${w*.008}" height="${h*.4}" fill="url(#kMarble)"/>
+  <!-- island top surface -->
+  <rect x="${w*.27}" y="${h*.58}" width="${w*.46}" height="${h*.04}" rx="2" fill="#F0ECEC"/>
+  <!-- island top marble veins -->
+  <path d="M${w*.28} ${h*.595} Q${w*.45} ${h*.588} ${w*.62} ${h*.598} Q${w*.68} ${h*.602} ${w*.72} ${h*.594}" stroke="#D8D4CC" stroke-width="0.8" fill="none" opacity="0.8"/>
+  <path d="M${w*.3} ${h*.61} Q${w*.42} ${h*.606} ${w*.5} ${h*.612}" stroke="#D8D4CC" stroke-width="0.5" fill="none" opacity="0.5"/>
+  <!-- island edge -->
+  <rect x="${w*.27}" y="${h*.618}" width="${w*.46}" height="2" fill="#E0DCD4"/>
+
+  <!-- Brass pendant lights -->
+  <!-- pendant 1 -->
+  <line x1="${w*.38}" y1="0" x2="${w*.38}" y2="${h*.42}" stroke="#B89840" stroke-width="1.5"/>
+  <ellipse cx="${w*.38}" cy="${h*.44}" rx="${w*.028}" ry="${h*.04}" fill="#C4A450" stroke="#B89440" stroke-width="1"/>
+  <ellipse cx="${w*.38}" cy="${h*.42}" rx="${w*.012}" ry="${h*.01}" fill="#D4B460"/>
+  <!-- light glow pendant 1 -->
+  <radialGradient id="pGlow1" cx="50%" cy="100%" r="60%"><stop offset="0%" stop-color="rgba(255,210,100,0.3)"/><stop offset="100%" stop-color="rgba(255,210,100,0)"/></radialGradient>
+  <ellipse cx="${w*.38}" cy="${h*.48}" rx="${w*.08}" ry="${h*.1}" fill="url(#pGlow1)"/>
+  <!-- pendant 2 -->
+  <line x1="${w*.5}" y1="0" x2="${w*.5}" y2="${h*.38}" stroke="#B89840" stroke-width="1.5"/>
+  <ellipse cx="${w*.5}" cy="${h*.4}" rx="${w*.028}" ry="${h*.04}" fill="#C4A450" stroke="#B89440" stroke-width="1"/>
+  <ellipse cx="${w*.5}" cy="${h*.38}" rx="${w*.012}" ry="${h*.01}" fill="#D4B460"/>
+  <ellipse cx="${w*.5}" cy="${h*.44}" rx="${w*.08}" ry="${h*.1}" fill="url(#pGlow1)"/>
+  <!-- pendant 3 -->
+  <line x1="${w*.62}" y1="0" x2="${w*.62}" y2="${h*.42}" stroke="#B89840" stroke-width="1.5"/>
+  <ellipse cx="${w*.62}" cy="${h*.44}" rx="${w*.028}" ry="${h*.04}" fill="#C4A450" stroke="#B89440" stroke-width="1"/>
+  <ellipse cx="${w*.62}" cy="${h*.42}" rx="${w*.012}" ry="${h*.01}" fill="#D4B460"/>
+  <ellipse cx="${w*.62}" cy="${h*.48}" rx="${w*.08}" ry="${h*.1}" fill="url(#pGlow1)"/>
+
+  <!-- Items on island -->
+  <!-- fruit bowl -->
+  <ellipse cx="${w*.42}" cy="${h*.574}" rx="${w*.04}" ry="${h*.012}" fill="#C8B898"/>
+  <ellipse cx="${w*.42}" cy="${h*.562}" rx="${w*.038}" ry="${h*.016}" fill="#D4C4A4" opacity="0.9"/>
+  <!-- fruit -->
+  <ellipse cx="${w*.41}" cy="${h*.554}" rx="${w*.014}" ry="${h*.016}" fill="#D4822A" opacity="0.85"/>
+  <ellipse cx="${w*.432}" cy="${h*.552}" rx="${w*.012}" ry="${h*.015}" fill="#C87830" opacity="0.85"/>
+  <!-- cutting board -->
+  <rect x="${w*.54}" y="${h*.564}" width="${w*.06}" height="${h*.018}" rx="1" fill="#A08468" opacity="0.9"/>
+  <!-- glass -->
+  <rect x="${w*.60}" y="${h*.545}" width="${w*.012}" height="${h*.03}" rx="1" fill="rgba(200,220,235,0.5)" stroke="rgba(168,200,218,0.4)" stroke-width="0.5"/>
+
+  <!-- Morning light wash -->
+  <rect x="0" y="0" width="${w}" height="${h}" fill="url(#kSunIn)"/>
+</svg>`;
+}
+
+function svgSpaBath(w,h){
+  // Calacatta marble, freestanding tub, tall arched window, diffused light, palms
+  return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#B8D8E8"/><stop offset="55%" stop-color="#D0E8F4"/><stop offset="100%" stop-color="#E0F0F8"/></linearGradient>
+    <linearGradient id="bLight" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="rgba(255,248,240,0.5)"/><stop offset="100%" stop-color="rgba(255,248,240,0)"/></linearGradient>
+    <pattern id="bMarbleWall" x="0" y="0" width="150" height="200" patternUnits="userSpaceOnUse"><rect width="150" height="200" fill="#F2F0EC"/><path d="M0 40 Q30 35 70 42 Q110 50 150 38" stroke="#E0DCD4" stroke-width="1" fill="none" opacity="0.7"/><path d="M0 90 Q40 85 80 93 Q120 100 150 87" stroke="#E0DCD4" stroke-width="0.7" fill="none" opacity="0.55"/><path d="M0 145 Q50 140 90 147 Q125 153 150 141" stroke="#E0DCD4" stroke-width="0.8" fill="none" opacity="0.6"/><path d="M35 0 Q38 80 34 200" stroke="#D8D4CC" stroke-width="0.7" fill="none" opacity="0.4"/><path d="M100 0 Q104 70 100 200" stroke="#D8D4CC" stroke-width="0.5" fill="none" opacity="0.3"/></pattern>
+    <pattern id="bMarbleFloor" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="#EAEAE6"/><rect x="0" y="0" width="100" height="1" fill="#D8D8D2" opacity="0.5"/><rect x="0" y="0" width="1" height="100" fill="#D8D8D2" opacity="0.5"/><path d="M0 35 Q25 30 50 36 Q75 42 100 34" stroke="#D4D0C8" stroke-width="0.5" fill="none" opacity="0.5"/></pattern>
+  </defs>
+  <!-- marble walls -->
+  <rect width="${w}" height="${h}" fill="url(#bMarbleWall)"/>
+  <!-- marble floor -->
+  <rect x="0" y="${h*.78}" width="${w}" height="${h*.22}" fill="url(#bMarbleFloor)"/>
+  <rect x="0" y="${h*.78}" width="${w}" height="1.5" fill="#D0CCC4" opacity="0.5"/>
+
+  <!-- Tall arched window (center) -->
+  <path d="M${w*.32} ${h*.04} Q${w*.32} ${h*.01} ${w*.5} 0 Q${w*.68} ${h*.01} ${w*.68} ${h*.04} L${w*.68} ${h*.75} L${w*.32} ${h*.75} Z" fill="url(#bSky)"/>
+  <!-- window frame arch -->
+  <path d="M${w*.32} ${h*.04} Q${w*.32} ${h*.01} ${w*.5} 0 Q${w*.68} ${h*.01} ${w*.68} ${h*.04}" fill="none" stroke="#D8D4CC" stroke-width="3.5"/>
+  <rect x="${w*.318}" y="${h*.04}" width="3.5" height="${h*.712}" fill="#D8D4CC"/>
+  <rect x="${w*.678}" y="${h*.04}" width="3.5" height="${h*.712}" fill="#D8D4CC"/>
+  <rect x="${w*.318}" y="${h*.748}" width="${w*.364}" height="3.5" fill="#D8D4CC"/>
+  <!-- window mullion cross -->
+  <rect x="${w*.318}" y="${h*.4}" width="${w*.364}" height="2" fill="#D8D4CC" opacity="0.6"/>
+  <rect x="${w*.498}" y="${h*.04}" width="2" height="${h*.712}" fill="#D8D4CC" opacity="0.6"/>
+  <!-- palm silhouette in window -->
+  <path d="M${w*.5} ${h*.75} L${w*.497} ${h*.35}" stroke="#3A5828" stroke-width="3" fill="none"/>
+  <path d="M${w*.497} ${h*.35} Q${w*.46} ${h*.28} ${w*.44} ${h*.29} M${w*.497} ${h*.35} Q${w*.53} ${h*.27} ${w*.548} ${h*.28} M${w*.497} ${h*.35} Q${w*.472} ${h*.3} ${w*.46} ${h*.27} M${w*.497} ${h*.35} Q${w*.52} ${h*.31} ${w*.532} ${h*.28}" stroke="#4A6A38" stroke-width="2" fill="none" opacity="0.8"/>
+  <!-- window light diffusion -->
+  <rect x="${w*.32}" y="0" width="${w*.36}" height="${h*.75}" fill="url(#bLight)"/>
+
+  <!-- Freestanding oval soaking tub -->
+  <!-- tub shadow -->
+  <ellipse cx="${w*.5}" cy="${h*.73}" rx="${w*.22}" ry="${h*.04}" fill="rgba(0,0,0,0.06)"/>
+  <!-- tub body -->
+  <ellipse cx="${w*.5}" cy="${h*.67}" rx="${w*.21}" ry="${h*.13}" fill="#F4F2EE" stroke="#DDD9D2" stroke-width="1.5"/>
+  <!-- tub interior -->
+  <ellipse cx="${w*.5}" cy="${h*.655}" rx="${w*.17}" ry="${h*.1}" fill="#EAF4F8"/>
+  <!-- water in tub -->
+  <ellipse cx="${w*.5}" cy="${h*.66}" rx="${w*.165}" ry="${h*.093}" fill="#D8EEF6" opacity="0.7"/>
+  <ellipse cx="${w*.5}" cy="${h*.662}" rx="${w*.16}" ry="${h*.088}" fill="#CCE8F2" opacity="0.5"/>
+  <!-- tub rim highlight -->
+  <ellipse cx="${w*.5}" cy="${h*.555}" rx="${w*.21}" ry="${h*.025}" fill="#FAFAFC" opacity="0.8"/>
+  <!-- tub feet (brass) -->
+  <ellipse cx="${w*.31}" cy="${h*.765}" rx="${w*.012}" ry="${h*.008}" fill="#C4A050"/>
+  <rect x="${w*.304}" y="${h*.718}" width="${w*.012}" height="${h*.047}" rx="2" fill="#C4A050"/>
+  <ellipse cx="${w*.69}" cy="${h*.765}" rx="${w*.012}" ry="${h*.008}" fill="#C4A050"/>
+  <rect x="${w*.684}" y="${h*.718}" width="${w*.012}" height="${h*.047}" rx="2" fill="#C4A050"/>
+  <ellipse cx="${w*.385}" cy="${h*.78}" rx="${w*.01}" ry="${h*.007}" fill="#B89848"/>
+  <rect x="${w*.38}" y="${h*.74}" width="${w*.01}" height="${h*.04}" rx="2" fill="#B89848"/>
+  <ellipse cx="${w*.615}" cy="${h*.78}" rx="${w*.01}" ry="${h*.007}" fill="#B89848"/>
+  <rect x="${w*.61}" y="${h*.74}" width="${w*.01}" height="${h*.04}" rx="2" fill="#B89848"/>
+
+  <!-- Brass floor faucet/mixer (standing) -->
+  <rect x="${w*.62}" y="${h*.56}" width="${w*.008}" height="${h*.18}" rx="2" fill="#C8A848"/>
+  <path d="M${w*.624} ${h*.57} Q${w*.66} ${h*.56} ${w*.665} ${h*.6}" stroke="#C8A848" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <ellipse cx="${w*.665}" cy="${h*.605}" rx="${w*.01}" ry="${h*.012}" fill="#C8A848"/>
+
+  <!-- Small marble shelf / tray beside tub -->
+  <rect x="${w*.08}" y="${h*.6}" width="${w*.14}" height="${h*.06}" rx="2" fill="#F0EEEA"/>
+  <rect x="${w*.08}" y="${h*.598}" width="${w*.14}" height="${h*.008}" rx="1" fill="#E4E0D8"/>
+  <!-- candle on shelf -->
+  <rect x="${w*.112}" y="${h*.568}" width="${w*.018}" height="${h*.032}" rx="1" fill="#F5F0E8" stroke="#E8E2DA" stroke-width="0.5"/>
+  <line x1="${w*.121}" y1="${h*.568}" x2="${w*.121}" y2="${h*.56}" stroke="#C8A840" stroke-width="1"/>
+  <!-- soap dish / bottle -->
+  <rect x="${w*.148}" y="${h*.572}" width="${w*.014}" height="${h*.028}" rx="2" fill="#D4C8B0"/>
+
+  <!-- Towel hung on wall (right) -->
+  <rect x="${w*.85}" y="${h*.3}" width="${w*.03}" height="${h*.25}" rx="4" fill="#F0EBE2" opacity="0.9"/>
+  <rect x="${w*.847}" y="${h*.295}" width="${w*.036}" height="${h*.015}" rx="2" fill="#B89848"/>
+
+  <!-- Light overlay from window -->
+  <rect x="0" y="0" width="${w}" height="${h}" fill="rgba(255,248,238,0.1)"/>
+</svg>`;
+}
+
+function svgDiningRoom(w,h){
+  // Deep lacquered walls, long table, dramatic chandelier, candlelight and evening warmth
+  return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="dWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1C3D50"/><stop offset="100%" stop-color="#142E40"/></linearGradient>
+    <linearGradient id="dFloor" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3A2C1E"/><stop offset="100%" stop-color="#4A3828"/></linearGradient>
+    <radialGradient id="dChandelier" cx="50%" cy="0%" r="60%"><stop offset="0%" stop-color="rgba(255,210,100,0.45)"/><stop offset="50%" stop-color="rgba(255,200,80,0.15)"/><stop offset="100%" stop-color="rgba(255,200,80,0)"/></radialGradient>
+    <radialGradient id="dCandle1" cx="50%" cy="0%" r="80%"><stop offset="0%" stop-color="rgba(255,200,80,0.35)"/><stop offset="100%" stop-color="rgba(255,200,80,0)"/></radialGradient>
+    <pattern id="dWood" x="0" y="0" width="40" height="400" patternUnits="userSpaceOnUse"><rect width="40" height="400" fill="#8A6840"/><rect x="0" y="0" width="1" height="400" fill="#7A5830" opacity="0.4"/><rect x="18" y="0" width="1" height="400" fill="#9A7850" opacity="0.2"/></pattern>
+  </defs>
+  <!-- deep lacquer wall -->
+  <rect width="${w}" height="${h}" fill="url(#dWall)"/>
+  <!-- wood floor -->
+  <rect x="0" y="${h*.75}" width="${w}" height="${h*.25}" fill="url(#dFloor)"/>
+  <rect x="0" y="${h*.75}" width="${w}" height="1.5" fill="#2A1E12" opacity="0.6"/>
+  <!-- floor highlight under table -->
+  <ellipse cx="${w*.5}" cy="${h*.88}" rx="${w*.35}" ry="${h*.08}" fill="rgba(255,200,80,0.06)"/>
+
+  <!-- Wainscoting/wall panel -->
+  <rect x="0" y="${h*.55}" width="${w}" height="${h*.2}" fill="#1A3848" opacity="0.5"/>
+  <rect x="0" y="${h*.545}" width="${w}" height="${h*.012}" fill="#243E52"/>
+  <rect x="0" y="${h*.745}" width="${w}" height="${h*.01}" fill="#243E52"/>
+  <!-- wall panel rectangles -->
+  <rect x="${w*.04}" y="${h*.565}" width="${w*.2}" height="${h*.165}" fill="none" stroke="#243E52" stroke-width="1.5" rx="1" opacity="0.7"/>
+  <rect x="${w*.27}" y="${h*.565}" width="${w*.2}" height="${h*.165}" fill="none" stroke="#243E52" stroke-width="1.5" rx="1" opacity="0.7"/>
+  <rect x="${w*.53}" y="${h*.565}" width="${w*.2}" height="${h*.165}" fill="none" stroke="#243E52" stroke-width="1.5" rx="1" opacity="0.7"/>
+  <rect x="${w*.76}" y="${h*.565}" width="${w*.2}" height="${h*.165}" fill="none" stroke="#243E52" stroke-width="1.5" rx="1" opacity="0.7"/>
+  <!-- upper wall panels -->
+  <rect x="${w*.04}" y="${h*.08}" width="${w*.2}" height="${h*.44}" fill="none" stroke="#243E52" stroke-width="1.5" rx="1" opacity="0.5"/>
+  <rect x="${w*.27}" y="${h*.08}" width="${w*.2}" height="${h*.44}" fill="none" stroke="#243E52" stroke-width="1.5" rx="1" opacity="0.5"/>
+  <rect x="${w*.53}" y="${h*.08}" width="${w*.2}" height="${h*.44}" fill="none" stroke="#243E52" stroke-width="1.5" rx="1" opacity="0.5"/>
+  <rect x="${w*.76}" y="${h*.08}" width="${w*.2}" height="${h*.44}" fill="none" stroke="#243E52" stroke-width="1.5" rx="1" opacity="0.5"/>
+
+  <!-- Chandelier -->
+  <!-- chain -->
+  <line x1="${w*.5}" y1="0" x2="${w*.5}" y2="${h*.12}" stroke="#C4A050" stroke-width="2"/>
+  <!-- chandelier body -->
+  <ellipse cx="${w*.5}" cy="${h*.13}" rx="${w*.03}" ry="${h*.022}" fill="#C4A050" stroke="#B49040" stroke-width="1"/>
+  <!-- arms -->
+  <line x1="${w*.5}" y1="${h*.14}" x2="${w*.3}" y2="${h*.2}" stroke="#C4A050" stroke-width="1.8"/>
+  <line x1="${w*.5}" y1="${h*.14}" x2="${w*.4}" y2="${h*.19}" stroke="#C4A050" stroke-width="1.8"/>
+  <line x1="${w*.5}" y1="${h*.14}" x2="${w*.6}" y2="${h*.19}" stroke="#C4A050" stroke-width="1.8"/>
+  <line x1="${w*.5}" y1="${h*.14}" x2="${w*.7}" y2="${h*.2}" stroke="#C4A050" stroke-width="1.8"/>
+  <line x1="${w*.5}" y1="${h*.14}" x2="${w*.36}" y2="${h*.18}" stroke="#C4A050" stroke-width="1.5" opacity="0.7"/>
+  <line x1="${w*.5}" y1="${h*.14}" x2="${w*.64}" y2="${h*.18}" stroke="#C4A050" stroke-width="1.5" opacity="0.7"/>
+  <!-- candle tips on chandelier -->
+  <ellipse cx="${w*.3}" cy="${h*.208}" rx="${w*.008}" ry="${h*.014}" fill="#F4ECD8" stroke="#E4DC C8" stroke-width="0.5"/>
+  <line x1="${w*.3}" y1="${h*.2}" x2="${w*.3}" y2="${h*.19}" stroke="#F0D080" stroke-width="1.2"/>
+  <ellipse cx="${w*.4}" cy="${h*.198}" rx="${w*.007}" ry="${h*.013}" fill="#F4ECD8"/>
+  <line x1="${w*.4}" y1="${h*.19}" x2="${w*.4}" y2="${h*.18}" stroke="#F0D080" stroke-width="1.2"/>
+  <ellipse cx="${w*.6}" cy="${h*.198}" rx="${w*.007}" ry="${h*.013}" fill="#F4ECD8"/>
+  <line x1="${w*.6}" y1="${h*.19}" x2="${w*.6}" y2="${h*.18}" stroke="#F0D080" stroke-width="1.2"/>
+  <ellipse cx="${w*.7}" cy="${h*.208}" rx="${w*.008}" ry="${h*.014}" fill="#F4ECD8"/>
+  <line x1="${w*.7}" y1="${h*.2}" x2="${w*.7}" y2="${h*.19}" stroke="#F0D080" stroke-width="1.2"/>
+  <!-- chandelier warm glow -->
+  <rect x="0" y="0" width="${w}" height="${h}" fill="url(#dChandelier)"/>
+
+  <!-- Dining table (dark walnut, long) -->
+  <!-- table shadow -->
+  <ellipse cx="${w*.5}" cy="${h*.84}" rx="${w*.38}" ry="${h*.025}" fill="rgba(0,0,0,0.18)"/>
+  <!-- table surface -->
+  <rect x="${w*.1}" y="${h*.7}" width="${w*.8}" height="${h*.1}" rx="4" fill="#5A3E24"/>
+  <!-- table highlight -->
+  <rect x="${w*.12}" y="${h*.702}" width="${w*.76}" height="${h*.012}" rx="2" fill="rgba(255,255,255,0.06)"/>
+  <!-- table legs -->
+  <rect x="${w*.16}" y="${h*.8}" width="${w*.03}" height="${h*.18}" rx="2" fill="#4A3018"/>
+  <rect x="${w*.81}" y="${h*.8}" width="${w*.03}" height="${h*.18}" rx="2" fill="#4A3018"/>
+  <rect x="${w*.255}" y="${h*.8}" width="${w*.02}" height="${h*.14}" rx="2" fill="#4A3018" opacity="0.6"/>
+  <rect x="${w*.725}" y="${h*.8}" width="${w*.02}" height="${h*.14}" rx="2" fill="#4A3018" opacity="0.6"/>
+
+  <!-- Place settings (suggested, 6 settings) -->
+  <!-- Plates -->
+  <ellipse cx="${w*.22}" cy="${h*.73}" rx="${w*.04}" ry="${h*.025}" fill="#EEE8DC"/>
+  <ellipse cx="${w*.38}" cy="${h*.726}" rx="${w*.04}" ry="${h*.025}" fill="#EEE8DC"/>
+  <ellipse cx="${w*.5}" cy="${h*.724}" rx="${w*.04}" ry="${h*.025}" fill="#EEE8DC"/>
+  <ellipse cx="${w*.62}" cy="${h*.726}" rx="${w*.04}" ry="${h*.025}" fill="#EEE8DC"/>
+  <ellipse cx="${w*.78}" cy="${h*.73}" rx="${w*.04}" ry="${h*.025}" fill="#EEE8DC"/>
+  <!-- stemware -->
+  <line x1="${w*.26}" y1="${h*.72}" x2="${w*.26}" y2="${h*.688}" stroke="rgba(200,220,235,0.6)" stroke-width="2"/>
+  <ellipse cx="${w*.26}" cy="${h*.688}" rx="${w*.018}" ry="${h*.01}" fill="rgba(200,220,235,0.35)"/>
+  <line x1="${w*.44}" y1="${h*.718}" x2="${w*.44}" y2="${h*.685}" stroke="rgba(200,220,235,0.6)" stroke-width="2"/>
+  <ellipse cx="${w*.44}" cy="${h*.685}" rx="${w*.018}" ry="${h*.01}" fill="rgba(200,220,235,0.35)"/>
+  <line x1="${w*.56}" y1="${h*.718}" x2="${w*.56}" y2="${h*.685}" stroke="rgba(200,220,235,0.6)" stroke-width="2"/>
+  <ellipse cx="${w*.56}" cy="${h*.685}" rx="${w*.018}" ry="${h*.01}" fill="rgba(200,220,235,0.35)"/>
+  <line x1="${w*.74}" y1="${h*.72}" x2="${w*.74}" y2="${h*.688}" stroke="rgba(200,220,235,0.6)" stroke-width="2"/>
+  <ellipse cx="${w*.74}" cy="${h*.688}" rx="${w*.018}" ry="${h*.01}" fill="rgba(200,220,235,0.35)"/>
+
+  <!-- Candelabra centerpiece -->
+  <rect x="${w*.485}" y="${h*.64}" width="${w*.03}" height="${h*.06}" rx="2" fill="#C4A050"/>
+  <ellipse cx="${w*.5}" cy="${h*.64}" rx="${w*.025}" ry="${h*.008}" fill="#C4A050"/>
+  <!-- 3 candles -->
+  <rect x="${w*.484}" y="${h*.59}" width="${w*.008}" height="${h*.05}" rx="1" fill="#F5F0E8"/>
+  <line x1="${w*.488}" y1="${h*.59}" x2="${w*.488}" y2="${h*.582}" stroke="#F0D070" stroke-width="1"/>
+  <rect x="${w*.496}" y="${h*.575}" width="${w*.008}" height="${h*.065}" rx="1" fill="#F5F0E8"/>
+  <line x1="${w*.5}" y1="${h*.575}" x2="${w*.5}" y2="${h*.565}" stroke="#F0D070" stroke-width="1.2"/>
+  <rect x="${w*.508}" y="${h*.59}" width="${w*.008}" height="${h*.05}" rx="1" fill="#F5F0E8"/>
+  <line x1="${w*.512}" y1="${h*.59}" x2="${w*.512}" y2="${h*.582}" stroke="#F0D070" stroke-width="1"/>
+  <!-- candle glow -->
+  <ellipse cx="${w*.5}" cy="${h*.62}" rx="${w*.08}" ry="${h*.08}" fill="url(#dCandle1)"/>
+
+  <!-- Dining chairs (silhouettes) -->
+  <!-- Chair backs visible above table -->
+  <rect x="${w*.19}" y="${h*.55}" width="${w*.06}" height="${h*.15}" rx="3" fill="#1A2E3C" opacity="0.8"/>
+  <rect x="${w*.35}" y="${h*.54}" width="${w*.06}" height="${h*.155}" rx="3" fill="#1A2E3C" opacity="0.8"/>
+  <rect x="${w*.59}" y="${h*.54}" width="${w*.06}" height="${h*.155}" rx="3" fill="#1A2E3C" opacity="0.8"/>
+  <rect x="${w*.75}" y="${h*.55}" width="${w*.06}" height="${h*.15}" rx="3" fill="#1A2E3C" opacity="0.8"/>
+  <!-- chair seat cushions -->
+  <ellipse cx="${w*.22}" cy="${h*.79}" rx="${w*.04}" ry="${h*.02}" fill="#2A4050" opacity="0.6"/>
+  <ellipse cx="${w*.38}" cy="${h*.786}" rx="${w*.04}" ry="${h*.02}" fill="#2A4050" opacity="0.6"/>
+  <ellipse cx="${w*.62}" cy="${h*.786}" rx="${w*.04}" ry="${h*.02}" fill="#2A4050" opacity="0.6"/>
+  <ellipse cx="${w*.78}" cy="${h*.79}" rx="${w*.04}" ry="${h*.02}" fill="#2A4050" opacity="0.6"/>
+
+  <!-- Art on wall (suggestion) -->
+  <rect x="${w*.18}" y="${h*.12}" width="${w*.14}" height="${h*.32}" fill="#152838" stroke="#243E52" stroke-width="1.5" rx="1"/>
+  <rect x="${w*.68}" y="${h*.12}" width="${w*.14}" height="${h*.32}" fill="#152838" stroke="#243E52" stroke-width="1.5" rx="1"/>
+  <!-- abstract art marks -->
+  <path d="M${w*.21} ${h*.2} Q${w*.24} ${h*.17} ${w*.27} ${h*.22} Q${w*.29} ${h*.26} ${w*.28} ${h*.3}" stroke="#8A7060" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <ellipse cx="${w*.24}" cy="${h*.35}" rx="${w*.025}" ry="${h*.04}" fill="#C09A6E" opacity="0.3"/>
+
+  <!-- candle light glow on table -->
+  <ellipse cx="${w*.5}" cy="${h*.75}" rx="${w*.25}" ry="${h*.05}" fill="rgba(255,200,80,0.08)"/>
+</svg>`;
+}
+
+function svgLibrary(w,h){
+  // Floor-to-ceiling built-ins, leather chair, brass lamp, warm amber evening
+  return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="lWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#EDE3D5"/><stop offset="100%" stop-color="#E4D9C8"/></linearGradient>
+    <radialGradient id="lLamp" cx="50%" cy="100%" r="70%"><stop offset="0%" stop-color="rgba(255,185,60,0.4)"/><stop offset="60%" stop-color="rgba(255,185,60,0.12)"/><stop offset="100%" stop-color="rgba(255,185,60,0)"/></radialGradient>
+    <radialGradient id="lAmbient" cx="35%" cy="50%" r="55%"><stop offset="0%" stop-color="rgba(255,200,100,0.2)"/><stop offset="100%" stop-color="rgba(255,200,100,0)"/></radialGradient>
+    <pattern id="lWood" x="0" y="0" width="20" height="200" patternUnits="userSpaceOnUse"><rect width="20" height="200" fill="#7A5C38"/><rect x="0" y="0" width="0.8" height="200" fill="#6A4C28" opacity="0.4"/><rect x="10" y="0" width="0.5" height="200" fill="#8A6C48" opacity="0.25"/></pattern>
+    <pattern id="lFloor" x="0" y="0" width="30" height="300" patternUnits="userSpaceOnUse"><rect width="30" height="300" fill="#6A4E30"/><rect x="0" y="0" width="0.8" height="300" fill="#5A3E22" opacity="0.3"/></pattern>
+  </defs>
+  <!-- warm wall -->
+  <rect width="${w}" height="${h}" fill="url(#lWall)"/>
+  <!-- wood floor -->
+  <rect x="0" y="${h*.8}" width="${w}" height="${h*.2}" fill="url(#lFloor)"/>
+  <rect x="0" y="${h*.8}" width="${w}" height="1.5" fill="#5A4020" opacity="0.5"/>
+  <!-- area rug suggestion -->
+  <rect x="${w*.28}" y="${h*.78}" width="${w*.44}" height="${h*.22}" fill="#9A8060" opacity="0.25" rx="2"/>
+  <rect x="${w*.3}" y="${h*.79}" width="${w*.4}" height="${h*.2}" fill="none" stroke="#8A7050" stroke-width="2" opacity="0.2" rx="1"/>
+
+  <!-- Built-in bookshelves (left wall) -->
+  <!-- shelf unit background -->
+  <rect x="0" y="0" width="${w*.42}" height="${h}" fill="url(#lWood)"/>
+  <rect x="${w*.415}" y="0" width="${w*.012}" height="${h}" fill="#6A4C2C"/>
+  <!-- shelf planks -->
+  <rect x="0" y="${h*.08}" width="${w*.42}" height="${h*.016}" fill="#6A4C2C"/>
+  <rect x="0" y="${h*.22}" width="${w*.42}" height="${h*.016}" fill="#6A4C2C"/>
+  <rect x="0" y="${h*.36}" width="${w*.42}" height="${h*.016}" fill="#6A4C2C"/>
+  <rect x="0" y="${h*.5}" width="${w*.42}" height="${h*.016}" fill="#6A4C2C"/>
+  <rect x="0" y="${h*.64}" width="${w*.42}" height="${h*.016}" fill="#6A4C2C"/>
+  <rect x="0" y="${h*.78}" width="${w*.42}" height="${h*.016}" fill="#6A4C2C"/>
+  <!-- vertical shelf divider -->
+  <rect x="${w*.21}" y="0" width="${w*.008}" height="${h}" fill="#6A4C2C" opacity="0.7"/>
+
+  <!-- Books on shelves (colored spines) -->
+  <!-- Row 1 -->
+  <rect x="${w*.01}" y="${h*.096}" width="${w*.025}" height="${h*.12}" fill="#8B4513"/>
+  <rect x="${w*.038}" y="${h*.096}" width="${w*.02}" height="${h*.12}" fill="#2C4A6E"/>
+  <rect x="${w*.061}" y="${h*.096}" width="${w*.028}" height="${h*.12}" fill="#4A3820"/>
+  <rect x="${w*.092}" y="${h*.096}" width="${w*.018}" height="${h*.12}" fill="#1A3A2A"/>
+  <rect x="${w*.113}" y="${h*.096}" width="${w*.03}" height="${h*.12}" fill="#6A3018"/>
+  <rect x="${w*.146}" y="${h*.096}" width="${w*.022}" height="${h*.12}" fill="#3A3060"/>
+  <rect x="${w*.171}" y="${h*.096}" width="${w*.028}" height="${h*.12}" fill="#4A3818"/>
+  <!-- Row 1 right panel -->
+  <rect x="${w*.225}" y="${h*.096}" width="${w*.025}" height="${h*.12}" fill="#5A2818"/>
+  <rect x="${w*.253}" y="${h*.096}" width="${w*.018}" height="${h*.12}" fill="#1E3A4A"/>
+  <rect x="${w*.274}" y="${h*.096}" width="${w*.03}" height="${h*.12}" fill="#3A2E18"/>
+  <rect x="${w*.307}" y="${h*.096}" width="${w*.02}" height="${h*.12}" fill="#2A4038"/>
+  <rect x="${w*.33}" y="${h*.096}" width="${w*.025}" height="${h*.12}" fill="#5A2010"/>
+  <rect x="${w*.358}" y="${h*.096}" width="${w*.028}" height="${h*.12}" fill="#1A2840"/>
+  <rect x="${w*.389}" y="${h*.096}" width="${w*.018}" height="${h*.12}" fill="#4A3420"/>
+  <!-- Row 2 -->
+  <rect x="${w*.01}" y="${h*.236}" width="${w*.022}" height="${h*.115}" fill="#1E3A52"/>
+  <rect x="${w*.035}" y="${h*.236}" width="${w*.03}" height="${h*.115}" fill="#6A3C18"/>
+  <rect x="${w*.068}" y="${h*.236}" width="${w*.018}" height="${h*.115}" fill="#3A3828"/>
+  <rect x="${w*.089}" y="${h*.236}" width="${w*.028}" height="${h*.115}" fill="#4A2210"/>
+  <rect x="${w*.12}" y="${h*.236}" width="${w*.025}" height="${h*.115}" fill="#2A4420"/>
+  <rect x="${w*.148}" y="${h*.236}" width="${w*.02}" height="${h*.115}" fill="#5A4818"/>
+  <rect x="${w*.171}" y="${h*.236}" width="${w*.032}" height="${h*.115}" fill="#1C3048"/>
+  <rect x="${w*.225}" y="${h*.236}" width="${w*.028}" height="${h*.115}" fill="#4A2C14"/>
+  <rect x="${w*.256}" y="${h*.236}" width="${w*.018}" height="${h*.115}" fill="#2A3C50"/>
+  <rect x="${w*.277}" y="${h*.236}" width="${w*.025}" height="${h*.115}" fill="#3E2C16"/>
+  <rect x="${w*.305}" y="${h*.236}" width="${w*.03}" height="${h*.115}" fill="#1A3028"/>
+  <rect x="${w*.338}" y="${h*.236}" width="${w*.02}" height="${h*.115}" fill="#582010"/>
+  <!-- Row 3 -->
+  <rect x="${w*.01}" y="${h*.376}" width="${w*.03}" height="${h*.115}" fill="#3E2A14"/>
+  <rect x="${w*.043}" y="${h*.376}" width="${w*.022}" height="${h*.115}" fill="#1C3C50"/>
+  <rect x="${w*.068}" y="${h*.376}" width="${w*.026}" height="${h*.115}" fill="#5A3010"/>
+  <rect x="${w*.097}" y="${h*.376}" width="${w*.018}" height="${h*.115}" fill="#2A4230"/>
+  <rect x="${w*.118}" y="${h*.376}" width="${w*.032}" height="${h*.115}" fill="#4A3818"/>
+  <rect x="${w*.153}" y="${h*.376}" width="${w*.02}" height="${h*.115}" fill="#1A2C42"/>
+  <rect x="${w*.225}" y="${h*.376}" width="${w*.025}" height="${h*.115}" fill="#503818"/>
+  <rect x="${w*.253}" y="${h*.376}" width="${w*.03}" height="${h*.115}" fill="#1E3848"/>
+  <rect x="${w*.286}" y="${h*.376}" width="${w*.022}" height="${h*.115}" fill="#3A2010"/>
+  <rect x="${w*.311}" y="${h*.376}" width="${w*.028}" height="${h*.115}" fill="#2A3C24"/>
+  <!-- book spines highlight -->
+  <rect x="${w*.01}" y="${h*.096}" width="${w*.41}" height="1.5" fill="rgba(255,220,160,0.15)"/>
+  <rect x="${w*.01}" y="${h*.236}" width="${w*.41}" height="1.5" fill="rgba(255,220,160,0.12)"/>
+  <rect x="${w*.01}" y="${h*.376}" width="${w*.41}" height="1.5" fill="rgba(255,220,160,0.1)"/>
+  <!-- decorative objects on shelves -->
+  <ellipse cx="${w*.19}" cy="${h*.505}" rx="${w*.022}" ry="${h*.04}" fill="#8A9880" opacity="0.8"/>
+  <rect x="${w*.168}" y="${h*.46}" width="${w*.044}" height="${h*.045}" rx="2" fill="#9AA888" opacity="0.7"/>
+  <ellipse cx="${w*.35}" cy="${h*.505}" rx="${w*.018}" ry="${h*.035}" fill="#C4A050" opacity="0.7"/>
+  <!-- globe -->
+  <ellipse cx="${w*.09}" cy="${h*.505}" rx="${w*.028}" ry="${h*.032}" fill="#7090A8" opacity="0.75" stroke="#5A7888" stroke-width="0.8"/>
+
+  <!-- Tufted leather armchair (right center) -->
+  <!-- chair shadow -->
+  <ellipse cx="${w*.68}" cy="${h*.88}" rx="${w*.14}" ry="${h*.04}" fill="rgba(0,0,0,0.1)"/>
+  <!-- chair seat -->
+  <rect x="${w*.56}" y="${h*.65}" width="${w*.24}" height="${h*.2}" rx="6" fill="#7A3018"/>
+  <!-- seat cushion -->
+  <rect x="${w*.565}" y="${h*.655}" width="${w*.23}" height="${h*.185}" rx="5" fill="#8A3820"/>
+  <!-- seat tufts -->
+  <circle cx="${w*.63}" cy="${h*.72}" r="3" fill="#7A2E18" opacity="0.7"/>
+  <circle cx="${w*.68}" cy="${h*.715}" r="3" fill="#7A2E18" opacity="0.7"/>
+  <circle cx="${w*.73}" cy="${h*.72}" r="3" fill="#7A2E18" opacity="0.7"/>
+  <!-- chair back -->
+  <rect x="${w*.565}" y="${h*.48}" width="${w*.23}" height="${h*.195}" rx="5" fill="#8A3820"/>
+  <!-- back tufts -->
+  <circle cx="${w*.63}" cy="${h*.55}" r="2.5" fill="#7A2E18" opacity="0.6"/>
+  <circle cx="${w*.68}" cy="${h*.545}" r="2.5" fill="#7A2E18" opacity="0.6"/>
+  <circle cx="${w*.73}" cy="${h*.55}" r="2.5" fill="#7A2E18" opacity="0.6"/>
+  <circle cx="${w*.63}" cy="${h*.615}" r="2.5" fill="#7A2E18" opacity="0.6"/>
+  <circle cx="${w*.68}" cy="${h*.61}" r="2.5" fill="#7A2E18" opacity="0.6"/>
+  <circle cx="${w*.73}" cy="${h*.615}" r="2.5" fill="#7A2E18" opacity="0.6"/>
+  <!-- arms -->
+  <rect x="${w*.555}" y="${h*.565}" width="${w*.02}" height="${h*.12}" rx="4" fill="#6A2810"/>
+  <rect x="${w*.785}" y="${h*.565}" width="${w*.02}" height="${h*.12}" rx="4" fill="#6A2810"/>
+  <!-- arm tops -->
+  <rect x="${w*.548}" y="${h*.558}" width="${w*.034}" height="${h*.025}" rx="3" fill="#7A3018"/>
+  <rect x="${w*.778}" y="${h*.558}" width="${w*.034}" height="${h*.025}" rx="3" fill="#7A3018"/>
+  <!-- legs -->
+  <rect x="${w*.575}" y="${h*.85}" width="${w*.012}" height="${h*.1}" rx="2" fill="#C4A050"/>
+  <rect x="${w*.77}" y="${h*.85}" width="${w*.012}" height="${h*.1}" rx="2" fill="#C4A050"/>
+  <rect x="${w*.62}" y="${h*.85}" width="${w*.01}" height="${h*.08}" rx="2" fill="#B89040" opacity="0.7"/>
+  <rect x="${w*.73}" y="${h*.85}" width="${w*.01}" height="${h*.08}" rx="2" fill="#B89040" opacity="0.7"/>
+  <!-- throw on chair -->
+  <path d="M${w*.79} ${h*.56} Q${w*.82} ${h*.6} ${w*.83} ${h*.68} Q${w*.84} ${h*.72} ${w*.82} ${h*.76}" stroke="#D4C0A0" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8"/>
+
+  <!-- Side table with lamp -->
+  <!-- table -->
+  <ellipse cx="${w*.84}" cy="${h*.72}" rx="${w*.07}" ry="${h*.025}" fill="#8A6840"/>
+  <ellipse cx="${w*.84}" cy="${h*.71}" rx="${w*.07}" ry="${h*.022}" fill="#9A7850"/>
+  <rect x="${w*.828}" y="${h*.71}" width="${w*.024}" height="${h*.17}" rx="3" fill="#8A6840"/>
+  <rect x="${w*.855}" y="${h*.71}" width="${w*.024}" height="${h*.17}" rx="3" fill="#8A6840"/>
+  <!-- brass floor lamp -->
+  <rect x="${w*.9}" y="${h*.3}" width="${w*.012}" height="${h*.52}" rx="3" fill="#C4A050"/>
+  <path d="M${w*.906} ${h*.3} Q${w*.94} ${h*.26} ${w*.93} ${h*.22}" stroke="#C4A050" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <!-- lamp shade -->
+  <path d="M${w*.91} ${h*.22} Q${w*.93} ${h*.16} ${w*.95} ${h*.22}" fill="#F4ECD8" stroke="#DDD8C8" stroke-width="1"/>
+  <ellipse cx="${w*.93}" cy="${h*.22}" rx="${w*.02}" ry="${h*.01}" fill="#DDD8C8"/>
+  <!-- lamp base disc -->
+  <ellipse cx="${w*.906}" cy="${h*.82}" rx="${w*.028}" ry="${h*.014}" fill="#C4A050"/>
+  <!-- lamp glow -->
+  <ellipse cx="${w*.93}" cy="${h*.3}" rx="${w*.2}" ry="${h*.28}" fill="url(#lLamp)"/>
+
+  <!-- Book on side table -->
+  <rect x="${w*.81}" y="${h*.698}" width="${w*.04}" height="${h*.012}" rx="1" fill="#3A3028" transform="rotate(-8 ${w*.83} ${h*.704})"/>
+
+  <!-- Ambient warm glow -->
+  <rect x="0" y="0" width="${w}" height="${h}" fill="url(#lAmbient)"/>
+</svg>`;
+}
+
+function svgLoggia(w,h){
+  // Outdoor living, arched columns, pool/ocean beyond, dusk warm light
+  return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="lgSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E8B060"/><stop offset="25%" stop-color="#F0C878"/><stop offset="55%" stop-color="#88B8D0"/><stop offset="100%" stop-color="#5A98B8"/></linearGradient>
+    <linearGradient id="lgPool" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4A98B8"/><stop offset="100%" stop-color="#3A88A8"/></linearGradient>
+    <radialGradient id="lgDusk" cx="50%" cy="0%" r="80%"><stop offset="0%" stop-color="rgba(255,180,60,0.4)"/><stop offset="55%" stop-color="rgba(255,150,40,0.1)"/><stop offset="100%" stop-color="rgba(255,150,40,0)"/></radialGradient>
+    <pattern id="lgStone" x="0" y="0" width="80" height="40" patternUnits="userSpaceOnUse"><rect width="80" height="40" fill="#D4C8B4"/><rect x="0" y="0" width="80" height="0.8" fill="#C4B8A4" opacity="0.5"/><rect x="0" y="0" width="0.8" height="40" fill="#C4B8A4" opacity="0.5"/><rect x="40" y="20" width="40" height="0.8" fill="#C4B8A4" opacity="0.3"/></pattern>
+  </defs>
+  <!-- Dusk sky -->
+  <rect width="${w}" height="${h}" fill="url(#lgSky)"/>
+  <!-- pool/water -->
+  <rect x="${w*.08}" y="${h*.55}" width="${w*.84}" height="${h*.38}" rx="4" fill="url(#lgPool)"/>
+  <rect x="${w*.08}" y="${h*.55}" width="${w*.84}" height="${h*.015}" fill="rgba(255,255,255,0.15)"/>
+  <!-- pool water shimmer -->
+  <path d="M${w*.1} ${h*.58} Q${w*.2} ${h*.575} ${w*.3} ${h*.582} Q${w*.4} ${h*.588} ${w*.5} ${h*.58}" stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="none"/>
+  <path d="M${w*.3} ${h*.62} Q${w*.45} ${h*.614} ${w*.6} ${h*.622} Q${w*.72} ${h*.628} ${w*.85} ${h*.618}" stroke="rgba(255,255,255,0.1)" stroke-width="0.8" fill="none"/>
+  <!-- pool edge / coping -->
+  <rect x="${w*.06}" y="${h*.54}" width="${w*.88}" height="${h*.02}" rx="2" fill="#D8D0C0"/>
+  <!-- terrace stone -->
+  <rect x="0" y="${h*.78}" width="${w}" height="${h*.22}" fill="url(#lgStone)"/>
+  <rect x="0" y="${h*.78}" width="${w}" height="1.5" fill="#C4B8A4" opacity="0.5"/>
+
+  <!-- Loggia ceiling -->
+  <rect x="0" y="0" width="${w}" height="${h*.18}" fill="#F0EBE2"/>
+  <!-- ceiling beams -->
+  <rect x="${w*.08}" y="0" width="${w*.06}" height="${h*.18}" fill="#E4DDD4" opacity="0.6"/>
+  <rect x="${w*.28}" y="0" width="${w*.06}" height="${h*.18}" fill="#E4DDD4" opacity="0.6"/>
+  <rect x="${w*.48}" y="0" width="${w*.06}" height="${h*.18}" fill="#E4DDD4" opacity="0.5"/>
+  <rect x="${w*.68}" y="0" width="${w*.06}" height="${h*.18}" fill="#E4DDD4" opacity="0.5"/>
+  <rect x="${w*.88}" y="0" width="${w*.06}" height="${h*.18}" fill="#E4DDD4" opacity="0.6"/>
+
+  <!-- Arched columns (5) -->
+  <!-- Column 1 -->
+  <rect x="${w*.06}" y="${h*.18}" width="${w*.055}" height="${h*.6}" fill="#EDE8E0"/>
+  <path d="M${w*.06} ${h*.18} Q${w*.06} ${h*.12} ${w*.0875} ${h*.1} Q${w*.115} ${h*.12} ${w*.115} ${h*.18}" fill="#EDE8E0"/>
+  <rect x="${w*.055}" y="${h*.175}" width="${w*.065}" height="${h*.015}" fill="#DDD8D0"/>
+  <rect x="${w*.06}" y="${h*.77}" width="${w*.055}" height="${h*.015}" fill="#DDD8D0"/>
+
+  <!-- Column 2 -->
+  <rect x="${w*.26}" y="${h*.18}" width="${w*.055}" height="${h*.6}" fill="#EDE8E0"/>
+  <path d="M${w*.26} ${h*.18} Q${w*.26} ${h*.12} ${w*.2875} ${h*.1} Q${w*.315} ${h*.12} ${w*.315} ${h*.18}" fill="#EDE8E0"/>
+  <rect x="${w*.255}" y="${h*.175}" width="${w*.065}" height="${h*.015}" fill="#DDD8D0"/>
+  <rect x="${w*.26}" y="${h*.77}" width="${w*.055}" height="${h*.015}" fill="#DDD8D0"/>
+
+  <!-- Column 3 (center) -->
+  <rect x="${w*.46}" y="${h*.18}" width="${w*.055}" height="${h*.6}" fill="#E8E3DB"/>
+  <path d="M${w*.46} ${h*.18} Q${w*.46} ${h*.12} ${w*.4875} ${h*.1} Q${w*.515} ${h*.12} ${w*.515} ${h*.18}" fill="#E8E3DB"/>
+  <rect x="${w*.455}" y="${h*.175}" width="${w*.065}" height="${h*.015}" fill="#D8D3CB"/>
+  <rect x="${w*.46}" y="${h*.77}" width="${w*.055}" height="${h*.015}" fill="#D8D3CB"/>
+
+  <!-- Column 4 -->
+  <rect x="${w*.66}" y="${h*.18}" width="${w*.055}" height="${h*.6}" fill="#EDE8E0"/>
+  <path d="M${w*.66} ${h*.18} Q${w*.66} ${h*.12} ${w*.6875} ${h*.1} Q${w*.715} ${h*.12} ${w*.715} ${h*.18}" fill="#EDE8E0"/>
+  <rect x="${w*.655}" y="${h*.175}" width="${w*.065}" height="${h*.015}" fill="#DDD8D0"/>
+  <rect x="${w*.66}" y="${h*.77}" width="${w*.055}" height="${h*.015}" fill="#DDD8D0"/>
+
+  <!-- Column 5 -->
+  <rect x="${w*.86}" y="${h*.18}" width="${w*.055}" height="${h*.6}" fill="#EDE8E0"/>
+  <path d="M${w*.86} ${h*.18} Q${w*.86} ${h*.12} ${w*.8875} ${h*.1} Q${w*.915} ${h*.12} ${w*.915} ${h*.18}" fill="#EDE8E0"/>
+  <rect x="${w*.855}" y="${h*.175}" width="${w*.065}" height="${h*.015}" fill="#DDD8D0"/>
+  <rect x="${w*.86}" y="${h*.77}" width="${w*.055}" height="${h*.015}" fill="#DDD8D0"/>
+
+  <!-- Garden beyond (between columns) -->
+  <rect x="${w*.115}" y="${h*.5}" width="${w*.145}" height="${h*.04}" fill="#6A9050" opacity="0.7"/>
+  <rect x="${w*.315}" y="${h*.5}" width="${w*.145}" height="${h*.04}" fill="#5A8040" opacity="0.6"/>
+  <rect x="${w*.515}" y="${h*.5}" width="${w*.145}" height="${h*.04}" fill="#6A9050" opacity="0.5"/>
+  <rect x="${w*.715}" y="${h*.5}" width="${w*.145}" height="${h*.04}" fill="#5A8040" opacity="0.6"/>
+  <!-- Palm trees beyond -->
+  <path d="M${w*.15} ${h*.5} L${w*.148} ${h*.26}" stroke="#2A4A1A" stroke-width="3" fill="none"/>
+  <path d="M${w*.148} ${h*.26} Q${w*.12} ${h*.2} ${w*.105} ${h*.21} M${w*.148} ${h*.26} Q${w*.17} ${h*.19} ${w*.183} ${h*.2} M${w*.148} ${h*.26} Q${w*.135} ${h*.22} ${w*.125} ${h*.2} M${w*.148} ${h*.26} Q${w*.16} ${h*.22} ${w*.168} ${h*.19}" stroke="#3A5A28" stroke-width="2" fill="none" opacity="0.8"/>
+  <path d="M${w*.73} ${h*.5} L${w*.728} ${h*.28}" stroke="#2A4A1A" stroke-width="2.5" fill="none"/>
+  <path d="M${w*.728} ${h*.28} Q${w*.7} ${h*.22} ${w*.685} ${h*.23} M${w*.728} ${h*.28} Q${w*.752} ${h*.21} ${w*.764} ${h*.22} M${w*.728} ${h*.28} Q${w*.712} ${h*.24} ${w*.702} ${h*.22}" stroke="#3A5A28" stroke-width="1.8" fill="none" opacity="0.75"/>
+
+  <!-- Outdoor furniture (linen sofas) -->
+  <!-- Left sofa -->
+  <rect x="${w*.08}" y="${h*.82}" width="${w*.2}" height="${h*.14}" rx="4" fill="#E8E2D4"/>
+  <rect x="${w*.08}" y="${h*.82}" width="${w*.2}" height="${h*.03}" rx="3" fill="#DDD6C8"/>
+  <rect x="${w*.08}" y="${h*.795}" width="${w*.2}" height="${h*.03}" rx="3" fill="#D8D0C2"/>
+  <rect x="${w*.09}" y="${h*.85}" width="${w*.06}" height="${h*.11}" rx="2" fill="#EEE8DA"/>
+  <rect x="${w*.158}" y="${h*.85}" width="${w*.06}" height="${h*.11}" rx="2" fill="#EAE4D6"/>
+  <rect x="${w*.226}" y="${h*.85}" width="${w*.044}" height="${h*.11}" rx="2" fill="#EEE8DA"/>
+  <rect x="${w*.073}" y="${h*.792}" width="${w*.012}" height="${h*.175}" rx="2" fill="#D4CCBE"/>
+  <rect x="${w*.275}" y="${h*.792}" width="${w*.012}" height="${h*.175}" rx="2" fill="#D4CCBE"/>
+  <!-- accent pillow blue -->
+  <rect x="${w*.092}" y="${h*.8}" width="${w*.035}" height="${h*.04}" rx="2" fill="#6A9AB8" transform="rotate(-4 ${w*.11} ${h*.82})"/>
+
+  <!-- Right sofa -->
+  <rect x="${w*.72}" y="${h*.82}" width="${w*.2}" height="${h*.14}" rx="4" fill="#E8E2D4"/>
+  <rect x="${w*.72}" y="${h*.82}" width="${w*.2}" height="${h*.03}" rx="3" fill="#DDD6C8"/>
+  <rect x="${w*.72}" y="${h*.795}" width="${w*.2}" height="${h*.03}" rx="3" fill="#D8D0C2"/>
+  <rect x="${w*.73}" y="${h*.85}" width="${w*.055}" height="${h*.11}" rx="2" fill="#EEE8DA"/>
+  <rect x="${w*.793}" y="${h*.85}" width="${w*.055}" height="${h*.11}" rx="2" fill="#EAE4D6"/>
+  <rect x="${w*.855}" y="${h*.85}" width="${w*.055}" height="${h*.11}" rx="2" fill="#EEE8DA"/>
+  <rect x="${w*.713}" y="${h*.792}" width="${w*.012}" height="${h*.175}" rx="2" fill="#D4CCBE"/>
+  <rect x="${w*.915}" y="${h*.792}" width="${w*.012}" height="${h*.175}" rx="2" fill="#D4CCBE"/>
+  <rect x="${w*.872}" y="${h*.8}" width="${w*.035}" height="${h*.04}" rx="2" fill="#6A9AB8" transform="rotate(4 ${w*.89} ${h*.82})"/>
+
+  <!-- Low coffee table (stone top) -->
+  <rect x="${w*.38}" y="${h*.855}" width="${w*.24}" height="${h*.1}" rx="3" fill="#C8C0B0"/>
+  <rect x="${w*.375}" y="${h*.845}" width="${w*.25}" height="${h*.022}" rx="2" fill="#D4CCBC"/>
+  <!-- items on table -->
+  <!-- candle -->
+  <rect x="${w*.44}" y="${h*.83}" width="${w*.015}" height="${h*.018}" rx="1" fill="#F4F0E8" stroke="#E4E0D8" stroke-width="0.5"/>
+  <line x1="${w*.4475}" y1="${h*.83}" x2="${w*.4475}" y2="${h*.823}" stroke="#E8C040" stroke-width="1"/>
+  <!-- small radial for candle -->
+  <ellipse cx="${w*.448}" cy="${h*.85}" rx="${w*.04}" ry="${h*.03}" fill="rgba(255,200,80,0.12)"/>
+  <!-- drink glass -->
+  <rect x="${w*.52}" y="${h*.82}" width="${w*.014}" height="${h*.025}" rx="1" fill="rgba(200,225,240,0.5)" stroke="rgba(180,210,230,0.4)" stroke-width="0.5"/>
+
+  <!-- Dusk glow overlay -->
+  <rect x="0" y="0" width="${w}" height="${h}" fill="url(#lgDusk)"/>
+  <!-- Warm light from loggia ceiling on floor -->
+  <rect x="${w*.05}" y="${h*.78}" width="${w*.9}" height="${h*.22}" fill="rgba(255,200,100,0.06)"/>
+</svg>`;
+}
+
+function svgAboutScene(w,h){
+  // Elegant entryway/foyer, round table with flowers, natural light, black and white marble
+  return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="aSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C8E0EE"/><stop offset="100%" stop-color="#D8EAF4"/></linearGradient>
+    <linearGradient id="aWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F5F0E8"/><stop offset="100%" stop-color="#EEE9E0"/></linearGradient>
+    <radialGradient id="aMornLight" cx="50%" cy="0%" r="70%"><stop offset="0%" stop-color="rgba(255,240,200,0.3)"/><stop offset="100%" stop-color="rgba(255,240,200,0)"/></radialGradient>
+    <pattern id="aMosaicFloor" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse"><rect width="30" height="30" fill="#EAEAE6"/><rect x="0" y="0" width="15" height="15" fill="#1C1C1E" opacity="0.88"/><rect x="15" y="15" width="15" height="15" fill="#1C1C1E" opacity="0.88"/><rect x="0" y="15" width="15" height="15" fill="#F2F0EC"/><rect x="15" y="0" width="15" height="15" fill="#F2F0EC"/></pattern>
+  </defs>
+  <!-- wall -->
+  <rect width="${w}" height="${h}" fill="url(#aWall)"/>
+  <!-- black and white marble floor -->
+  <rect x="0" y="${h*.72}" width="${w}" height="${h*.28}" fill="url(#aMosaicFloor)"/>
+  <rect x="0" y="${h*.72}" width="${w}" height="2" fill="#D0CCC4" opacity="0.5"/>
+
+  <!-- Tall double doors (back center, open to garden) -->
+  <!-- doorway opening -->
+  <rect x="${w*.32}" y="${h*.05}" width="${w*.36}" height="${h*.67}" fill="url(#aSky)"/>
+  <!-- garden view -->
+  <rect x="${w*.32}" y="${h*.5}" width="${w*.36}" height="${h*.22}" fill="#7A9A5A" opacity="0.8"/>
+  <rect x="${w*.32}" y="${h*.48}" width="${w*.36}" height="${h*.04}" fill="#6A8A4A" opacity="0.6"/>
+  <!-- palm beyond -->
+  <path d="M${w*.5} ${h*.72} L${w*.498} ${h*.38}" stroke="#3A5A28" stroke-width="4" fill="none"/>
+  <path d="M${w*.498} ${h*.38} Q${w*.46} ${h*.3} ${w*.44} ${h*.32} M${w*.498} ${h*.38} Q${w*.535} ${h*.29} ${w*.55} ${h*.31} M${w*.498} ${h*.38} Q${w*.475} ${h*.33} ${w*.462} ${h*.3} M${w*.498} ${h*.38} Q${w*.52} ${h*.34} ${w*.532} ${h*.3}" stroke="#4A7038" stroke-width="2.5" fill="none" opacity="0.85"/>
+  <!-- door frames -->
+  <rect x="${w*.318}" y="${h*.045}" width="4" height="${h*.676}" fill="#D8D2C8"/>
+  <rect x="${w*.678}" y="${h*.045}" width="4" height="${h*.676}" fill="#D8D2C8"/>
+  <rect x="${w*.318}" y="${h*.042}" width="${w*.364}" height="4" fill="#D8D2C8"/>
+  <!-- door panels (open doors pulled back) -->
+  <!-- left door panel -->
+  <rect x="${w*.2}" y="${h*.05}" width="${w*.125}" height="${h*.67}" fill="#EDE8E0" stroke="#D8D2C8" stroke-width="1.5"/>
+  <rect x="${w*.215}" y="${h*.07}" width="${w*.09}" height="${h*.28}" rx="1" fill="none" stroke="#D0CAC0" stroke-width="1"/>
+  <rect x="${w*.215}" y="${h*.365}" width="${w*.09}" height="${h*.28}" rx="1" fill="none" stroke="#D0CAC0" stroke-width="1"/>
+  <ellipse cx="${w*.316}" cy="${h*.385}" rx="${w*.006}" ry="${h*.01}" fill="#C4A050"/>
+  <!-- right door panel -->
+  <rect x="${w*.675}" y="${h*.05}" width="${w*.125}" height="${h*.67}" fill="#EDE8E0" stroke="#D8D2C8" stroke-width="1.5"/>
+  <rect x="${w*.685}" y="${h*.07}" width="${w*.09}" height="${h*.28}" rx="1" fill="none" stroke="#D0CAC0" stroke-width="1"/>
+  <rect x="${w*.685}" y="${h*.365}" width="${w*.09}" height="${h*.28}" rx="1" fill="none" stroke="#D0CAC0" stroke-width="1"/>
+  <ellipse cx="${w*.68}" cy="${h*.385}" rx="${w*.006}" ry="${h*.01}" fill="#C4A050"/>
+
+  <!-- Wainscoting on side walls -->
+  <rect x="0" y="${h*.45}" width="${w*.2}" height="${h*.27}" fill="#EAE5DC" opacity="0.5"/>
+  <rect x="${w*.8}" y="${h*.45}" width="${w*.2}" height="${h*.27}" fill="#EAE5DC" opacity="0.5"/>
+  <rect x="0" y="${h*.44}" width="${w*.2}" height="${h*.012}" fill="#D8D3C8"/>
+  <rect x="${w*.8}" y="${h*.44}" width="${w*.2}" height="${h*.012}" fill="#D8D3C8"/>
+  <rect x="${w*.02}" y="${h*.455}" width="${w*.16}" height="${h*.25}" fill="none" stroke="#CCCABE" stroke-width="1.2" rx="1" opacity="0.6"/>
+  <rect x="${w*.82}" y="${h*.455}" width="${w*.16}" height="${h*.25}" fill="none" stroke="#CCCABE" stroke-width="1.2" rx="1" opacity="0.6"/>
+
+  <!-- Round entry table (center foreground) -->
+  <!-- shadow -->
+  <ellipse cx="${w*.5}" cy="${h*.85}" rx="${w*.15}" ry="${h*.04}" fill="rgba(0,0,0,0.08)"/>
+  <!-- pedestal base -->
+  <rect x="${w*.486}" y="${h*.76}" width="${w*.028}" height="${h*.09}" rx="4" fill="#8A7258"/>
+  <!-- table top -->
+  <ellipse cx="${w*.5}" cy="${h*.76}" rx="${w*.14}" ry="${h*.04}" fill="#9A8268" stroke="#8A7258" stroke-width="1"/>
+  <ellipse cx="${w*.5}" cy="${h*.754}" rx="${w*.138}" ry="${h*.037}" fill="#A48C70"/>
+  <!-- marble inlay on table -->
+  <ellipse cx="${w*.5}" cy="${h*.752}" rx="${w*.1}" ry="${h*.026}" fill="#F0ECEC" opacity="0.8"/>
+  <path d="M${w*.41} ${h*.75} Q${w*.46} ${h*.745} ${w*.5} ${h*.752} Q${w*.54} ${h*.758} ${w*.59} ${h*.75}" stroke="#D8D4CC" stroke-width="0.7" fill="none" opacity="0.6"/>
+
+  <!-- Flower arrangement on table -->
+  <!-- vase -->
+  <path d="M${w*.488} ${h*.755} Q${w*.484} ${h*.72} ${w*.488} ${h*.68} Q${w*.5} ${h*.665} ${w*.512} ${h*.68} Q${w*.516} ${h*.72} ${w*.512} ${h*.755}" fill="#D4C8B0" stroke="#C8BCAA" stroke-width="0.8"/>
+  <ellipse cx="${w*.5}" cy="${h*.754}" rx="${w*.013}" ry="${h*.005}" fill="#E4D8C0"/>
+  <!-- stems -->
+  <line x1="${w*.5}" y1="${h*.665}" x2="${w*.485}" y2="${h*.58}" stroke="#6A8A58" stroke-width="1.5"/>
+  <line x1="${w*.5}" y1="${h*.665}" x2="${w*.5}" y2="${h*.55}" stroke="#5A7A48" stroke-width="1.5"/>
+  <line x1="${w*.5}" y1="${h*.665}" x2="${w*.515}" y2="${h*.57}" stroke="#6A8A58" stroke-width="1.5"/>
+  <line x1="${w*.5}" y1="${h*.665}" x2="${w*.476}" y2="${h*.59}" stroke="#587848" stroke-width="1.2"/>
+  <line x1="${w*.5}" y1="${h*.665}" x2="${w*.524}" y2="${h*.585}" stroke="#587848" stroke-width="1.2"/>
+  <!-- flowers (cream/ivory roses) -->
+  <ellipse cx="${w*.485}" cy="${h*.576}" rx="${w*.02}" ry="${h*.025}" fill="#F4EEE0"/>
+  <ellipse cx="${w*.487}" cy="${h*.574}" rx="${w*.015}" ry="${h*.02}" fill="#FAF5ED"/>
+  <ellipse cx="${w*.5}" cy="${h*.548}" rx="${w*.022}" ry="${h*.026}" fill="#F0EAE0"/>
+  <ellipse cx="${w*.501}" cy="${h*.546}" rx="${w*.016}" ry="${h*.02}" fill="#FAF5EC"/>
+  <ellipse cx="${w*.516}" cy="${h*.568}" rx="${w*.02}" ry="${h*.024}" fill="#F2ECE2"/>
+  <ellipse cx="${w*.517}" cy="${h*.566}" rx="${w*.015}" ry="${h*.019}" fill="#FBF6EE"/>
+  <ellipse cx="${w*.474}" cy="${h*.588}" rx="${w*.018}" ry="${h*.022}" fill="#EEE8DC"/>
+  <ellipse cx="${w*.525}" cy="${h*.583}" rx="${w*.018}" ry="${h*.022}" fill="#F0EAE0"/>
+  <!-- leaves -->
+  <path d="M${w*.49} ${h*.61} Q${w*.47} ${h*.59} ${w*.475} ${h*.575}" stroke="#5A7A48" stroke-width="1.2" fill="none"/>
+  <path d="M${w*.51} ${h*.61} Q${w*.53} ${h*.59} ${w*.525} ${h*.575}" stroke="#5A7A48" stroke-width="1.2" fill="none"/>
+
+  <!-- Wall sconces (flanking door) -->
+  <rect x="${w*.29}" y="${h*.28}" width="${w*.015}" height="${h*.08}" rx="2" fill="#C4A050"/>
+  <path d="M${w*.292} ${h*.28} Q${w*.31} ${h*.24} ${w*.308} ${h*.22}" stroke="#C4A050" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="${w*.308}" cy="${h*.22}" rx="${w*.012}" ry="${h*.018}" fill="#F4ECD0" stroke="#DDD0B0" stroke-width="0.8"/>
+  <radialGradient id="sconce1" cx="50%" cy="100%" r="60%"><stop offset="0%" stop-color="rgba(255,200,80,0.22)"/><stop offset="100%" stop-color="rgba(255,200,80,0)"/></radialGradient>
+  <ellipse cx="${w*.308}" cy="${h*.26}" rx="${w*.07}" ry="${h*.1}" fill="url(#sconce1)"/>
+
+  <rect x="${w*.695}" y="${h*.28}" width="${w*.015}" height="${h*.08}" rx="2" fill="#C4A050"/>
+  <path d="M${w*.708} ${h*.28} Q${w*.692} ${h*.24} ${w*.694} ${h*.22}" stroke="#C4A050" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="${w*.694}" cy="${h*.22}" rx="${w*.012}" ry="${h*.018}" fill="#F4ECD0" stroke="#DDD0B0" stroke-width="0.8"/>
+  <ellipse cx="${w*.694}" cy="${h*.26}" rx="${w*.07}" ry="${h*.1}" fill="url(#sconce1)"/>
+
+  <!-- Morning light overlay -->
+  <rect x="0" y="0" width="${w}" height="${h}" fill="url(#aMornLight)"/>
+  <!-- light shaft from door -->
+  <polygon points="${w*.34},${h*.72} ${w*.66},${h*.72} ${w*.72},${h} ${w*.28},${h}" fill="rgba(255,240,200,0.07)"/>
+</svg>`;
+}
+
+// ── INJECT ALL SCENES ─────────────────────────────────────────────────────────
+
+function inject(id, svgStr) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;overflow:hidden';
+  el.innerHTML = svgStr;
+  const svg = el.querySelector('svg');
+  if (svg) { svg.style.cssText = 'width:100%;height:100%;display:block'; }
+}
+
+function injectProj(id, svgStr) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;overflow:hidden';
+  el.innerHTML = svgStr;
+  const svg = el.querySelector('svg');
+  if (svg) { svg.style.cssText = 'width:100%;height:100%;display:block;transition:transform .7s ease'; }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  // Hero — grand salon, wide
+  inject('heroScene', svgGrandSalon(1400, 900));
+
+  // Featured — grand salon from a different angle (same scene, wider crop)
+  inject('featScene', svgGrandSalon(1600, 980));
+
+  // Proj cards
+  injectProj('p1', svgPrimarySuite(400, 300));
+  injectProj('p2', svgKitchen(400, 300));
+  injectProj('p3', svgSpaBath(400, 300));
+  injectProj('p4', svgDiningRoom(400, 300));
+  injectProj('p5', svgLibrary(400, 300));
+  injectProj('p6', svgLoggia(400, 300));
+
+  // About section — foyer
+  inject('aboutScene', svgAboutScene(700, 800));
+
+  // Hover scale for proj cards
+  document.querySelectorAll('.proj').forEach(proj => {
+    const inner = proj.querySelector('[id^=p]');
+    if (!inner) return;
+    proj.addEventListener('mouseenter', () => {
+      const svg = inner.querySelector('svg');
+      if (svg) svg.style.transform = 'scale(1.06)';
+    });
+    proj.addEventListener('mouseleave', () => {
+      const svg = inner.querySelector('svg');
+      if (svg) svg.style.transform = 'scale(1)';
+    });
+  });
+});
+
+// ── PROJECTS DATA ─────────────────────────────────────────────────────────────
+const PD = [
+  {lbl:'Featured Project · 2024',t:'Jupiter Inlet Colony<br><em>Grand Salon</em>',loc:'Jupiter, Florida',d:'A complete transformation of a 4,800 sq ft waterfront estate. New construction from shell to fully furnished — arched french doors opening to a private terrace and intracoastal view. Completed in 11 weeks.',scene:'Grand Salon'},
+  {lbl:'Primary Suite · 2023',t:'The Bear\'s Club<br><em>Residence</em>',loc:'Jupiter, Florida',d:'A serene primary suite conceived around natural morning light and organic textures. Custom upholstered headboard in Belgian linen, bespoke cabinetry, and a spa bath with a direct ocean view.',scene:'Primary Suite'},
+  {lbl:'Grand Kitchen · 2023',t:'Admirals Cove<br><em>Estate</em>',loc:'Palm Beach Gardens, Florida',d:'A Calacatta marble waterfall island anchors this grand kitchen. Hand-forged brass pendants, bespoke shaker cabinetry in antique white, and an unobstructed garden view through oversize windows.',scene:'Grand Kitchen'},
+  {lbl:'Spa Bath · 2022',t:'Palm Beach Ocean<br><em>Retreat</em>',loc:'Palm Beach, Florida',d:'A primary bath conceived as a private spa — Calacatta marble floor to ceiling, a freestanding soaking tub on brass legs positioned beneath a tall arched window framing royal palms.',scene:'Spa Bath'},
+  {lbl:'Dining Room · 2023',t:'Frenchman\'s Creek<br><em>Villa</em>',loc:'Jupiter, Florida',d:'A dining room designed for grand evenings. Deep lacquered walls, a custom 12-seat walnut table, and a bespoke brass chandelier sourced from a Parisian auction. Candlelit and extraordinary.',scene:'Dining Room'},
+  {lbl:'Library · 2023',t:'Tequesta Waterfront<br><em>Library</em>',loc:'Tequesta, Florida',d:'Floor-to-ceiling built-in shelving in rich walnut, a tufted leather club chair, and a brass floor lamp casting warm amber light. A room designed to be lived in, deeply and comfortably.',scene:'Library'},
+  {lbl:'New Construction · 2024',t:'Juno Beach<br><em>Loggia</em>',loc:'Juno Beach, Florida',d:'A loggia designed for Palm Beach evenings — arched limestone columns, outdoor sofas in all-weather linen, and a pool that appears to dissolve into the horizon. Fully furnished on the day of closing.',scene:'Loggia'},
+];
+
+function openModal(i) {
+  const p = PD[i];
+  document.getElementById('modal-lbl').textContent = p.lbl;
+  document.getElementById('modal-t').innerHTML = p.t;
+  document.getElementById('modal-loc').textContent = p.loc;
+  document.getElementById('modal-d').textContent = p.d;
+  const img = document.getElementById('modal-img');
+  img.innerHTML = '';
+  img.style.minHeight = '420px';
+  // render the scene into modal
+  const scenes = [svgGrandSalon, svgPrimarySuite, svgKitchen, svgSpaBath, svgDiningRoom, svgLibrary, svgLoggia];
+  const svgStr = scenes[i](700, 560);
+  const wrap = document.createElement('div');
+  wrap.style.cssText = 'width:100%;height:100%;min-height:420px;overflow:hidden';
+  wrap.innerHTML = svgStr;
+  const svg = wrap.querySelector('svg');
+  if (svg) svg.style.cssText = 'width:100%;height:100%;min-height:420px;display:block';
+  img.appendChild(wrap);
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModalBg(e) { if (e.target.classList.contains('modal') || e.target.classList.contains('modal-bg')) closeModalDirect(); }
+function closeModalDirect() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow = ''; }
+
+// ── NAV + CURSOR + SLIDER ────────────────────────────────────────────────────
+const cur = document.getElementById('cur'), curR = document.getElementById('cur-r');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx+'px'; cur.style.top = my+'px'; });
+(function loop() { rx += (mx-rx)*.1; ry += (my-ry)*.1; curR.style.left = rx+'px'; curR.style.top = ry+'px'; requestAnimationFrame(loop); })();
+document.querySelectorAll('a,button,.proj,.featured,.svc,.modal-close').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('on-link'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('on-link'));
+});
+window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('stuck', scrollY > 60));
+const ro = new IntersectionObserver(es => es.forEach((e,i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('in'), i*70); ro.unobserve(e.target); } }), {threshold:.1});
+document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+const track = document.getElementById('track');
+let idx = 0;
+function getItemW() { const p = track.querySelector('.proj'); return p ? (p.offsetWidth + 24) : 424; }
+function maxI() { return Math.max(0, track.querySelectorAll('.proj').length - Math.floor(track.parentElement.offsetWidth / getItemW())); }
+function slide(d) { idx = Math.max(0, Math.min(idx + d, maxI())); track.style.transform = `translateX(-${idx * getItemW()}px)`; updateDots(); }
+function updateDots() { const dots = document.querySelectorAll('.dot'); const m = maxI(); dots.forEach((d,i) => { const step = m/(dots.length-1)||1; d.classList.toggle('active', Math.round(idx/step)===i); }); }
+function handleSubmit(e) { e.preventDefault(); const btn = e.target.querySelector('button'); btn.textContent = 'Message Sent ✓'; btn.style.background = 'var(--deep)'; btn.style.borderColor = 'var(--deep)'; setTimeout(() => { btn.textContent = 'Send Enquiry'; btn.style.background = ''; btn.style.borderColor = ''; }, 3500); }
+</script>
+</body>
+</html>
